@@ -1,0 +1,465 @@
+{
+  "id": "ie-root",
+  "name": "Ireland (Éire)",
+  "category": "government_root",
+  "children": [
+    {
+      "id": "executive-cluster",
+      "name": "Executive branch",
+      "category": "cabinet_collective",
+      "children": [
+        {
+          "id": "taoiseach",
+          "name": "Taoiseach",
+          "category": "taoiseach"
+        },
+        {
+          "id": "tanaiste",
+          "name": "Tánaiste",
+          "category": "tanaiste"
+        },
+        {
+          "id": "cabinet-collective",
+          "name": "Government (Cabinet)",
+          "category": "cabinet_collective"
+        },
+        {
+          "id": "departments",
+          "name": "Ministerial departments",
+          "category": "other_body",
+          "children": [
+            {
+              "id": "dept-taoiseach",
+              "name": "Department of the Taoiseach",
+              "category": "ministerial_dept",
+              "children": []
+            },
+            {
+              "id": "dept-foreign",
+              "name": "Department of Foreign Affairs",
+              "category": "ministerial_dept",
+              "children": []
+            },
+            {
+              "id": "dept-finance",
+              "name": "Department of Finance",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "ntma",
+                  "name": "National Treasury Management Agency",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "revenue",
+                  "name": "Revenue Commissioners",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "ogp",
+                  "name": "Office of Government Procurement",
+                  "category": "executive_agency"
+                }
+              ]
+            },
+            {
+              "id": "dept-expenditure",
+              "name": "Department of Public Expenditure, NDP Delivery and Reform",
+              "category": "ministerial_dept",
+              "children": []
+            },
+            {
+              "id": "dept-health",
+              "name": "Department of Health",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "hse",
+                  "name": "Health Service Executive (HSE)",
+                  "category": "executive_ndpb",
+                  "children": [
+                    {
+                      "id": "hse-cho-1",
+                      "name": "CHO 1 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-2",
+                      "name": "CHO 2 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-3",
+                      "name": "CHO 3 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-4",
+                      "name": "CHO 4 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-5",
+                      "name": "CHO 5 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-6",
+                      "name": "CHO 6 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-7",
+                      "name": "CHO 7 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-8",
+                      "name": "CHO 8 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-cho-9",
+                      "name": "CHO 9 (Community Healthcare Organisation)",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-hg-dublin-midlands",
+                      "name": "Dublin Midlands Hospital Group",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-hg-ireland-east",
+                      "name": "Ireland East Hospital Group",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-hg-south",
+                      "name": "South/South West Hospital Group",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-hg-rcsi",
+                      "name": "RCSI Hospitals",
+                      "category": "division"
+                    },
+                    {
+                      "id": "hse-hg-galway",
+                      "name": "University of Galway Hospitals",
+                      "category": "division"
+                    }
+                  ]
+                },
+                {
+                  "id": "hpra",
+                  "name": "Health Products Regulatory Authority",
+                  "category": "advisory_ndpb"
+                },
+                {
+                  "id": "hiqa",
+                  "name": "HIQA",
+                  "category": "advisory_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-justice",
+              "name": "Department of Justice",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "garda",
+                  "name": "An Garda Síochána",
+                  "category": "executive_ndpb",
+                  "children": [
+                    {
+                      "id": "garda-dmr",
+                      "name": "Garda Dublin Metropolitan Region",
+                      "category": "division"
+                    },
+                    {
+                      "id": "garda-eastern",
+                      "name": "Garda Eastern Region",
+                      "category": "division"
+                    },
+                    {
+                      "id": "garda-north-western",
+                      "name": "Garda North Western Region",
+                      "category": "division"
+                    },
+                    {
+                      "id": "garda-southern",
+                      "name": "Garda Southern Region",
+                      "category": "division"
+                    },
+                    {
+                      "id": "garda-south-eastern",
+                      "name": "Garda South Eastern Region",
+                      "category": "division"
+                    }
+                  ]
+                },
+                {
+                  "id": "ips",
+                  "name": "Irish Prison Service",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "lpi",
+                  "name": "Legal Aid Board",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-education",
+              "name": "Department of Education",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "sec-exams",
+                  "name": "State Examinations Commission",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "ncca",
+                  "name": "NCCA",
+                  "category": "advisory_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-further",
+              "name": "Department of Further and Higher Education",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "hei-authority",
+                  "name": "Higher Education Authority",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "sfi",
+                  "name": "Science Foundation Ireland",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-enterprise",
+              "name": "Department of Enterprise, Trade and Employment",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "enterprise-ireland",
+                  "name": "Enterprise Ireland",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "ida",
+                  "name": "IDA Ireland",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "wrc",
+                  "name": "Workplace Relations Commission",
+                  "category": "tribunal"
+                }
+              ]
+            },
+            {
+              "id": "dept-transport",
+              "name": "Department of Transport",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "nta",
+                  "name": "National Transport Authority",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "irish-rail",
+                  "name": "Iarnród Éireann",
+                  "category": "public_corporation"
+                }
+              ]
+            },
+            {
+              "id": "dept-housing",
+              "name": "Department of Housing, Local Government and Heritage",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "lgma",
+                  "name": "Local Government Management Agency",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "housing-agency",
+                  "name": "The Housing Agency",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-environment",
+              "name": "Department of the Environment, Climate and Communications",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "epa",
+                  "name": "Environmental Protection Agency",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "seai",
+                  "name": "SEAI",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-agriculture",
+              "name": "Department of Agriculture, Food and the Marine",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "teagasc",
+                  "name": "Teagasc",
+                  "category": "executive_ndpb"
+                },
+                {
+                  "id": "bord-bia",
+                  "name": "Bord Bia",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-social",
+              "name": "Department of Social Protection",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "intreo",
+                  "name": "Intreo (service network)",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-children",
+              "name": "Department of Children, Equality, Disability, Integration and Youth",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "tusla",
+                  "name": "Tusla",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-defence",
+              "name": "Department of Defence",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "df",
+                  "name": "Defence Forces",
+                  "category": "executive_ndpb"
+                }
+              ]
+            },
+            {
+              "id": "dept-rural",
+              "name": "Department of Rural and Community Development",
+              "category": "ministerial_dept",
+              "children": [
+                {
+                  "id": "pobal",
+                  "name": "Pobal",
+                  "category": "executive_ndpb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oireachtas",
+      "name": "Oireachtas (Parliament)",
+      "category": "other_body",
+      "children": [
+        {
+          "id": "dail",
+          "name": "Dáil Éireann",
+          "category": "other_body",
+          "children": [
+            {
+              "id": "dail-clerk",
+              "name": "Clerk of the Dáil",
+              "category": "civil_servant"
+            },
+            {
+              "id": "dail-committees",
+              "name": "Select committees",
+              "category": "other_body"
+            },
+            {
+              "id": "dail-debates",
+              "name": "Debates and votes",
+              "category": "other_body"
+            }
+          ]
+        },
+        {
+          "id": "seanad",
+          "name": "Seanad Éireann",
+          "category": "other_body",
+          "children": [
+            {
+              "id": "seanad-clerk",
+              "name": "Clerk of the Seanad",
+              "category": "civil_servant"
+            },
+            {
+              "id": "seanad-panels",
+              "name": "Panel groups (replaced at build with elected model)",
+              "category": "oireachtas_elected",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "courts",
+      "name": "Courts Service",
+      "category": "non_ministerial",
+      "children": [
+        {
+          "id": "superior-courts",
+          "name": "Superior courts",
+          "category": "other_body"
+        },
+        {
+          "id": "courts-hc",
+          "name": "High Court",
+          "category": "tribunal"
+        },
+        {
+          "id": "courts-co",
+          "name": "Court of Appeal",
+          "category": "tribunal"
+        },
+        {
+          "id": "courts-sc",
+          "name": "Supreme Court",
+          "category": "tribunal"
+        }
+      ]
+    }
+  ]
+}

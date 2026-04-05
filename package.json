@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "data:graph": "node scripts/generate-irish-public-sector-json.mjs"
   },
   "dependencies": {
     "@visx/event": "^3.12.0",

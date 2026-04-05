@@ -40,7 +40,13 @@ If **`pnpm build`** fails with **ENOSPC**, free disk space (export copies the fu
 
 ## Data
 
-Graph JSON lives under `data/`. The UI enriches it at build time in `src/app/page.tsx`.
+Graph JSON lives at **`data/irish-public-sector.json`**. The UI enriches it at build time in `src/app/page.tsx`. Regenerate from the script (after editing `scripts/generate-irish-public-sector-json.mjs`):
+
+```bash
+node scripts/generate-irish-public-sector-json.mjs
+```
+
+Commit the updated JSON so Vercel and clones have the same tree.
 
 ## Note: static export vs “full” Next on Vercel
 
