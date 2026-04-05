@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "data:graph": "node scripts/generate-irish-public-sector-json.mjs"
   },
   "dependencies": {
@@ -24,7 +24,6 @@
     "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/d3": "^7.4.3",
     "@types/geojson": "^7946.0.16",

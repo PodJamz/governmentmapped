@@ -17,10 +17,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 1. Push the [governmentmapped](https://github.com/PodJamz/governmentmapped) repo to GitHub (see **First push** below if the remote already has commits).
 2. In [Vercel](https://vercel.com), **Import** the repository.
-3. Framework preset: **Next.js**. Build command: `pnpm build` (or leave default if Vercel detects it). Install command: `pnpm install`.
-4. Deploy. Vercel runs `next build`; with `output: "export"` in `next.config.ts`, the app ships as **static pages**, which is fine for this UI.
-
-No extra output-directory setting is required for the default Next.js integration on Vercel.
+3. Build command: `pnpm build`. Install command: `pnpm install`. The repo includes **`vercel.json`**, which sets **`framework: null`**, **`outputDirectory: "out"`**, and **`trailingSlash: true`** so Vercel deploys the **static export** folder Next writes (`out/`), not the serverless `.vercel/output` layout. Without that, the build can succeed while the live site returns **404**.
+4. Deploy. Vercel runs `next build`; with `output: "export"` in `next.config.ts`, HTML and assets land in **`out/`**.
 
 **First push:** If `origin` is empty locally, run `git remote add origin https://github.com/PodJamz/governmentmapped.git` then `git push -u origin main`. If GitHub already has history (for example only `LICENSE`), either pull merge with `git pull origin main --allow-unrelated-histories` and resolve, or replace the remote history only if you intend to overwrite it.
 
@@ -36,7 +34,7 @@ If **`pnpm build`** fails with **ENOSPC**, free disk space (export copies the fu
 
 ## Stack
 
-- Next.js 15 (App Router), React 19, Tailwind 4, D3, Leaflet
+- Next.js 16 (App Router), React 19, Tailwind 4, D3, Leaflet
 
 ## Data
 
