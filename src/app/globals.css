@@ -1,26 +1,214 @@
 @import "tailwindcss";
 
+/* Manuscript / codex palette (original styling) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --codex-parchment: #e8dcc4;
+  --codex-parchment-mid: #dccfaf;
+  --codex-parchment-edge: #c4b896;
+  --codex-ink: #1c1612;
+  --codex-ink-muted: #4a4238;
+  --codex-gold: #a67c2a;
+  --codex-gold-bright: #c9a227;
+  --codex-crimson: #7a1f2e;
+  --codex-border: rgba(28, 22, 18, 0.22);
+  --background: var(--codex-parchment);
+  --foreground: var(--codex-ink);
+}
+
+.codex-page--ink {
+  --codex-parchment: #1a1612;
+  --codex-parchment-mid: #14110e;
+  --codex-parchment-edge: #0d0b09;
+  --codex-ink: #e8dcc8;
+  --codex-ink-muted: #a89b88;
+  --codex-gold: #c9a227;
+  --codex-gold-bright: #e4c04a;
+  --codex-crimson: #c45c6a;
+  --codex-border: rgba(232, 220, 200, 0.14);
+  --background: var(--codex-parchment);
+  --foreground: var(--codex-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-eb-garamond);
+  --font-serif: var(--font-cormorant);
+  --font-display: var(--font-cinzel);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--codex-parchment);
+  color: var(--codex-ink);
+  font-family: var(--font-eb-garamond), "EB Garamond", Georgia, serif;
+}
+
+.codex-root {
+  background: radial-gradient(
+      ellipse 120% 80% at 50% 35%,
+      var(--codex-parchment-mid) 0%,
+      var(--codex-parchment) 42%,
+      var(--codex-parchment-edge) 100%
+    ),
+    var(--codex-parchment);
+  box-shadow: inset 0 0 120px rgba(28, 22, 18, 0.06);
+}
+
+.codex-root:has(.codex-page--ink) {
+  box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.45);
+}
+
+.codex-reveal {
+  opacity: 0;
+  transform: scale(0.992);
+  transform-origin: 50% 42%;
+}
+
+.codex-reveal--on {
+  animation: codex-open 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .codex-reveal,
+  .codex-reveal--on {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes codex-open {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.codex-frame {
+  border: 2px solid var(--codex-gold);
+  outline: 1px solid var(--codex-border);
+  outline-offset: 3px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--codex-parchment-mid) 88%, transparent),
+    color-mix(in srgb, var(--codex-parchment) 95%, transparent)
+  );
+  box-shadow:
+    0 12px 40px rgba(28, 22, 18, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.codex-page--ink .codex-frame {
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.codex-initial {
+  float: left;
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 2.75rem;
+  line-height: 0.85;
+  padding-right: 0.2em;
+  margin-top: 0.06em;
+  color: var(--codex-gold-bright);
+  text-shadow: 0 1px 0 rgba(28, 22, 18, 0.15);
+}
+
+.codex-page--ink .codex-initial {
+  text-shadow: 0 0 24px rgba(201, 162, 39, 0.25);
+}
+
+.codex-knot-rule {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--codex-gold) 0 3px,
+    transparent 3px 8px,
+    var(--codex-crimson) 8px 9px,
+    transparent 9px 14px
+  );
+  opacity: 0.55;
+  border-radius: 1px;
+}
+
+.codex-btn {
+  font-family: var(--font-cinzel), "Cinzel", serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--codex-border);
+  color: var(--codex-ink);
+  background: color-mix(in srgb, var(--codex-parchment-mid) 75%, transparent);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.codex-btn:hover:not(:disabled) {
+  border-color: var(--codex-gold);
+  color: var(--codex-crimson);
+  background: color-mix(in srgb, var(--codex-gold-bright) 12%, var(--codex-parchment-mid));
+}
+
+.codex-btn:disabled {
+  opacity: 0.35;
+}
+
+.codex-label {
+  font-family: var(--font-cinzel), "Cinzel", serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--codex-ink-muted);
+}
+
+.codex-hover-pop {
+  border: 1px solid var(--codex-border);
+  background: color-mix(in srgb, var(--codex-parchment-mid) 92%, transparent);
+  color: var(--codex-ink);
+  box-shadow: 0 8px 28px rgba(28, 22, 18, 0.12);
+}
+
+.codex-page--ink .codex-hover-pop {
+  background: color-mix(in srgb, var(--codex-parchment-mid) 85%, transparent);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.codex-footnote {
+  font-family: var(--font-cinzel), "Cinzel", serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--codex-ink-muted);
+}
+
+/* Dark folio overlay: fixed light ink for contrast (independent of vellum/ink page theme) */
+.codex-map-overlay {
+  background: color-mix(in srgb, #12100e 92%, var(--codex-gold));
+  color: #e8dcc8;
+}
+
+.codex-map-overlay .codex-btn {
+  color: #e8dcc8;
+  border-color: rgba(232, 220, 200, 0.22);
+}
+
+.codex-map-overlay .codex-btn:hover:not(:disabled) {
+  border-color: var(--codex-gold-bright);
+  color: #fff8e8;
+}
+
+.codex-map-overlay .codex-footnote {
+  color: rgba(232, 220, 200, 0.65);
+}
+
+.codex-map-panel {
+  border: 1px solid var(--codex-border);
+  background: var(--codex-parchment-edge);
 }

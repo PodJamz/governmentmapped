@@ -1,0 +1,4614 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>atlantisisireland.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+html,footer,header{
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Custom MD PDF CSS
+ */
+html,footer,header{
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+
+ }
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/jamesspalding/Eire/eire/R%3A%5C2.Travail%5C1.Enseignement%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css"><link rel="stylesheet" href="file:///Users/jamesspalding/Eire/eire/D%3A%5Crdaros%5CCours%5C_1.Outils%5C2.Developpement%5C1.SCSS%5Cmain.css" type="text/css">
+</head>
+
+<body>
+    <h1 id="youtube-video-documentation">YouTube Video Documentation</h1>
+<p><strong>Title:</strong> Atlantis Ireland - Full Video<br>
+<strong>URL:</strong> https://www.youtube.com/watch?v=6k_igac6AfU<br>
+<strong>Duration:</strong> 3h 25m 34s<br>
+<strong>Views:</strong> 37964<br>
+<strong>Channel:</strong> Keystone - School of Advanced Studies<br>
+<strong>Upload Date:</strong> 20200115<br>
+<strong>Transcript Language:</strong> en</p>
+<h2 id="description">Description</h2>
+<p>Atlantis Ireland</p>
+<p>https://www.keystone.ie</p>
+<h2 id="transcript">Transcript</h2>
+<p>I stood by welcome to Keystone<br>
+University today we're gonna learn all<br>
+about Atlantis Ireland you're gonna<br>
+learn that the legend of Atlantis an<br>
+island of advanced seafaring people in<br>
+the Atlantic Ocean is mostly true it<br>
+combines two related places into one<br>
+legend a lot of exaggeration and some<br>
+historical errors the island of Ireland<br>
+is the legendary lost island of Atlantis<br>
+Ireland matches the description of the<br>
+island the player described why<br>
+Newgrange in Ireland spyin Valley is the<br>
+circular temple of Atlantis and is<br>
+probably the oldest temple on earth<br>
+the Irish were the first people in the<br>
+world to develop an advanced<br>
+civilization they were the first to<br>
+develop boats fishing agriculture<br>
+construction network language<br>
+mathematics sports music philosophy and<br>
+astronomy they sailed the world giving<br>
+the gift of civilization to others not<br>
+to build an empire but to push the human<br>
+race forward the ancient Irish built<br>
+stone circles mounds kearns and diamonds<br>
+all over the world stone age<br>
+constructions are found in virtually<br>
+every country on earth the most<br>
+spectacular are found in Ireland's byun<br>
+Valley the island of Ireland has an<br>
+estimated 100,000 Stone Age<br>
+constructions the Irish Tree alphabet<br>
+Owen was the world's first written<br>
+language why the spoken Gaelic language<br>
+is the missing indo-european mother<br>
+tongue the scholars have sought for<br>
+centuries the old Irish Gaelic language<br>
+is the root of the world's languages the<br>
+stereotypical Irish genetics of red hair<br>
+and milky white skin found all over the<br>
+world in the most unlikely of places<br>
+many Egyptian pharaohs are from the same<br>
+genetic gene pool as the Irish<br>
+while the legends of an advanced red<br>
+sunburned wrists are found all across<br>
+the globe<br>
+in Greek mythology Atlas was the first<br>
+king of the island of Atlantis he was<br>
+also the first king of Mauritania and<br>
+the Atlas Mountains in North Africa were<br>
+named after him<br>
+the lost city of Atlantis that Plato<br>
+described was actually an early Irish<br>
+settlement called Kern in Mauritania<br>
+Africa near the Atlas Mountains<br>
+it was the Amazons from Libya and not<br>
+the Atlantean Irish that waged war in<br>
+the Mediterranean Atlantis Ireland and<br>
+much of the world was devastated by a<br>
+huge global flood 11600 years ago which<br>
+was triggered by a comet impact in the<br>
+Atlantic near the poro Rico Trench very<br>
+few survived<br>
+there are three rules to the game to<br>
+learn from Keystone University number<br>
+one don't believe a word we say think<br>
+for yourself do your own research most<br>
+of all do your own thinking the point of<br>
+an education is not to tell you what to<br>
+think it's to help you think for<br>
+yourself<br>
+number two before you make up your mind<br>
+opener the very nature of our work means<br>
+that we push the boundaries and we go<br>
+against mainstream opinion we don't ask<br>
+you to believe a word we say just think<br>
+for yourself and approach our work with<br>
+an open mind number three<br>
+weird for the mainstream science to<br>
+catch up we push the boundaries and the<br>
+very nature of our work goes against<br>
+mainstream opinion if you want<br>
+mainstream opinion there are plenty of<br>
+other universities to go to if however<br>
+you want the absolute cutting-edge you<br>
+come to Keystone our mission is to build<br>
+the world's best university a center of<br>
+accidents that pushes the human race<br>
+forward we want to build the best<br>
+university the world has ever seen and<br>
+we hope you're a part of that for more<br>
+information visit keystore Mahe we run<br>
+three separate three-day seminar<br>
+atlantis mastermind an enterprise<br>
+Keystone's material is light years ahead<br>
+of the competition and is not available<br>
+anywhere else on the planet our Atlantis<br>
+seminar how to explore the great<br>
+mysteries day one is all about the real<br>
+ancient history of the world<br>
+dear two we explore modern science and<br>
+all the great breakthroughs df3<br>
+is all of a human evolution where we<br>
+came from where we're going and why<br>
+we're here that program is run once a<br>
+year in Dublin Ireland every May our<br>
+second seminar is called mastermind<br>
+where we help you awaken the genius<br>
+within day one is all about mind<br>
+mechanics but how can you understand the<br>
+origin of fear stress overwhelming<br>
+anxiety dr2 is all about creative<br>
+thinking how to unlock your inner wisdom<br>
+and dr3 is all about creating an<br>
+inspired mission for your life the mind<br>
+is like a computer and inspirations like<br>
+broadband that program is run every<br>
+August in Dublin Ireland our final<br>
+program was Enterprise where we have you<br>
+master the art of business enterprise is<br>
+like a three day MBA and is the best<br>
+business education on the planet day one<br>
+is all about rapid growth how do you<br>
+rapidly grow a business dr2 is about<br>
+financial mastery how to multiply the<br>
+sales profit cash flow and the value of<br>
+any business and day three is all about<br>
+mastering people skills recruitment<br>
+management and leadership to buy tickets<br>
+to any of our seminars or to find out<br>
+how you can help build the world's best<br>
+university visit Keystone ie<br>
+now let's get down to work part one the<br>
+island of Atlantis the legend of<br>
+Atlantis originated with the Greek<br>
+philosopher and historian Plato Plato<br>
+told us that beyond the pillars of<br>
+Herakles there is an island the island<br>
+of Atlantis several decades later as<br>
+Greek knowledge developed our startle<br>
+told us that beyond the pillars of<br>
+Herakles there is actually two islands<br>
+Albion which is Britain the white island<br>
+an error which is Ireland the sacred<br>
+island and that both islands are beyond<br>
+the cats which is France<br>
+some time later Greek historian<br>
+Theodorus who was known as the father of<br>
+history told us that marina first<br>
+attacked the Atlanteans in the city of<br>
+Corinth and that when she taught the<br>
+city she killed all the adult males and<br>
+slave the women and children Andrea's<br>
+the city if we take a quick look at this<br>
+map this map was created based on the<br>
+Greek knowledge at the time here we can<br>
+clearly see Britain Atlantis Ireland the<br>
+Isle of Man the Greek understanding of<br>
+Europe so this is France and Spain<br>
+here's Iberia Spain here we've got the<br>
+pillars of Herakles which is the Straits<br>
+of Gibraltar here we've got Africa this<br>
+is Ethiopia<br>
+here is the Atlas Mountains in<br>
+Mauritania and here is the city of Karen<br>
+in Mauritania there are many legends<br>
+linking ancient Ireland and<br>
+Mauritania this is the Greek<br>
+understanding of the island of Atlantis<br>
+atarid this is the location of the city<br>
+of Karen in Mauritania also known as the<br>
+record structure this is the city of<br>
+Atlantis<br>
+now the island of Atlantis the Atlantic<br>
+or the Atlantis ocean and the Atlas<br>
+Mountains were all named after the Greek<br>
+Titan Atlas atlas was the first king of<br>
+Atlantis and he was also the first king<br>
+of Mauritania Plato's legend of Atlantis<br>
+combined two separate places the island<br>
+of Atlantis Ireland and the city of<br>
+Charon in Mauritania Africa let's<br>
+examine the evidence for a glandt isalud<br>
+Plato's Atlantis was a large island in<br>
+the Atlantic Ocean with a central plan<br>
+that was surrounded by mountains Ireland<br>
+is the only large island on earth that<br>
+is remotely close to this description<br>
+there are also many details in Plato's<br>
+description of fit like a glove such as<br>
+the steep cliffs on one coast gentler<br>
+slopes on the other coast a fertile<br>
+central plain that is a view to the sea<br>
+while being encircled by mats also Plato<br>
+never once described Atlantis as been a<br>
+continent he described it as an island<br>
+in the Atlantic Ireland was the island<br>
+of Atlantis the player described<br>
+scientist are certain that while a small<br>
+island could sink a large landmass could<br>
+not have sunk to the bottom of the ocean<br>
+11600 years ago Atlantis Ireland was<br>
+drowned by a tsunami and a few survived<br>
+so that Landis did not sink to the<br>
+bottom of the ocean Plato tolis Atlantis<br>
+was swallowed by the sea he was<br>
+describing a tsunami there were very<br>
+survivors in Ireland although the<br>
+Warsong Irish mythology and the Irish<br>
+annals Tallis up at life in Ireland<br>
+before the great flood and after the<br>
+Great Flood Aaron is the only country on<br>
+earth with legends of life before and<br>
+after the Great Flood Plato also<br>
+described the hot and cold springs of<br>
+Atlantis Ireland has 27 known Warm<br>
+Springs which are called thermal springs<br>
+mostly in the buying Valley region there<br>
+are also thousands of Cold Springs all<br>
+across Ireland which are known as holy<br>
+Wells Plano also described an island<br>
+with elephants while Ireland had<br>
+mammoths it never had elephants Plato's<br>
+legend actually combined two related<br>
+places as we've already learned the<br>
+island of Atlantis Ireland and the irish<br>
+settlement of karen and mauritania<br>
+africa at one time Mauritania was a very<br>
+fertile land with thousands of elephants<br>
+and millions of acres of farmland in<br>
+Greek mythology Atlas was the first king<br>
+of both the island of Atlantis and<br>
+Mauritania in Africa so clearly played<br>
+will combined two legends into<br>
+ours is a very temperate climate due to<br>
+the Atlantic Gulf Stream this warm ocean<br>
+current did not stop during the great<br>
+ice age or the Younger Dryas mini ice<br>
+age period as a result Ireland was<br>
+habitable from ancient times Flint stone<br>
+tools have been found in Ireland dating<br>
+back at least three to four hundred<br>
+thousand years and it's most likely that<br>
+Ireland has been occupied for hundreds<br>
+of thousands of years Plato mentioned<br>
+that Atlantis could produce two crops<br>
+per year barley is harvested in Ireland<br>
+twice a year as our grass crops in fact<br>
+some grass crops are harvested three<br>
+times per year in Ireland Ireland has<br>
+winter and spring barley winter barley<br>
+is planted in the autumn of the winter<br>
+time it grows very slowly over the<br>
+winter but it springs to life in the<br>
+spring time and is harvested in the<br>
+summer Ireland also has spring barley<br>
+which is planted in the spring and it<br>
+grows spring and summer and is harvested<br>
+in the autumn so Ireland is that fair<br>
+tile that barley is harvested in this<br>
+summer and the autumn and that is the<br>
+two crops per year that Plato described<br>
+they told us in the center was a fertile<br>
+plain which was surrounded by mountains<br>
+here we can see the fertile plain<br>
+clearly surrounded by mountains there is<br>
+also extremely good land in Ireland in<br>
+north and Ulster and down here in<br>
+Munster as well but here we can see<br>
+mountains surrounding a fertile plain<br>
+this is the region of the Boyne Valley<br>
+which was the ancient capital of All<br>
+Ireland Plato also told us that the<br>
+circumference of the central plain was<br>
+ten thousand stadia which is about<br>
+sixteen hundred and sixty kilometers the<br>
+circumference of this plan is close to<br>
+that it's a little smaller but it is<br>
+close to that whole country was<br>
+described as being very lofty a<br>
+precipitous on the side of the sea but<br>
+the country immediately about and<br>
+surrounding the city was of a level plan<br>
+itself<br>
+surrounded by mountains which descended<br>
+toward the sea<br>
+it was smooth and even another an oblong<br>
+ship extending in one direction three<br>
+thousand stadia but across the center<br>
+inland it was two thousand Stadium a<br>
+stadia is a hundred and sixty-six meters<br>
+which is two hundred own megalithic<br>
+yards and a megalithic yard is point<br>
+eight to nine metres if you multiply<br>
+three thousand by two thousand you get<br>
+six million stadia squared if you<br>
+multiply the measurements of Ireland<br>
+which is two nine three two in this<br>
+direction and two or three years in this<br>
+direction you get five point nine seven<br>
+five that's within one percent actually<br>
+less than half of one percent of<br>
+clearance measurements<br>
+now there are a couple of points we<br>
+would like to make on this particular<br>
+piece of evidence some people think that<br>
+the measurements three thousand by two<br>
+thousand are for the plan of Atlantis<br>
+when others think it's for the island of<br>
+Atlantis we are of the opinion that the<br>
+measurements provided is for the island<br>
+of Atlantis and not the central plan<br>
+however you can very easily argue that<br>
+it's further plan just as you could<br>
+argue that the measurements are complete<br>
+nonsense secondly these measurements are<br>
+taken from the farthest points which is<br>
+how land used to be measured and in fact<br>
+is still measured in many places taking<br>
+a measurement from north south east and<br>
+west is one way of doing it but after<br>
+time and up until quite recently in<br>
+history land was measured from the<br>
+Fordyce points now the prevailing<br>
+academic opinion that Plato made up the<br>
+legend of Atlantis as some sort of moral<br>
+tale is complete nonsense there is no<br>
+moral to the story of Atlantis everybody<br>
+died in that story there is no moral<br>
+there in Plato's Republic a completely<br>
+separate book which never mentioned<br>
+Atlantis he speaks at length about the<br>
+perfect society and how he would design<br>
+the<br>
+society which was absolutely nothing to<br>
+do in Atlantis we can understand why<br>
+people have rubbished the legend of<br>
+Atlantis due to some of the very wild<br>
+and wonderful theories that have been<br>
+associated whether but like all<br>
+mythology there is a grain of truth<br>
+surrounded by a lot of exaggeration and<br>
+we are here today to separate fact from<br>
+fiction let's translate some of Clara's<br>
+words beyond the pillars of Herakles<br>
+there lay an island translation there is<br>
+an island in the Atlantic Ocean past the<br>
+Straits of Gibraltar measuring three<br>
+thousand stadia long and two thousand<br>
+stadia wide we've just covered this the<br>
+island of Ireland measures 2 9 3 2 by 2<br>
+3 8 stadia and it's for those points<br>
+putting it within 1% of plato's<br>
+measurements of Atlantis and I said<br>
+we've just pointed out some people think<br>
+those two matches are for the island of<br>
+Atlantis other people think those<br>
+measurements are for the ferret Isle<br>
+central plan and other people think<br>
+those measurements are just gibberish<br>
+worth opinions of the measurements of<br>
+the island but do your own thinking<br>
+Clara told us that the kings of the<br>
+island of Atlantis once had an extent<br>
+larger than Libya and Asia put together<br>
+so what he's telling us is the scale or<br>
+the reach of the kings of Atlantis was<br>
+global bigger than all of Africa and<br>
+Asia combined not that the island was<br>
+bigger than Africa and Asia combined but<br>
+that the reach or the scale of Atlantis<br>
+was he told us that Atlantis was the way<br>
+to other islands and from those islands<br>
+you can pass to the whole opposite<br>
+continent what he was telling us was the<br>
+island of Atlantis Ireland was a<br>
+stepping stone to sail to Iceland<br>
+then Greenland and then onto the<br>
+opposite continent of America<br>
+interestingly Clara knew about America<br>
+over 2,000 years before Columbus<br>
+supposedly discovered in the center of<br>
+Atlantis was a plan surrounded by<br>
+mountains which is said to have been the<br>
+fairest of all planes and very fair<br>
+title and as you have just seen in the<br>
+centre of Ireland is one of the most<br>
+fair<br>
+dial planes on earth which is surrounded<br>
+by beautiful mountains haven't<br>
+researched the 50 largest islands on<br>
+earth Ireland is the only one with a<br>
+central plane surrounded by mountains<br>
+obviously it's in the Atlantic Ocean<br>
+just as Plato described and the central<br>
+plain in Ireland is extremely fertile it<br>
+is amongst the best agricultural land<br>
+anywhere in the world<br>
+Plato told us Atlantis Atlantis Ireland<br>
+was the way to other islands when the<br>
+Irish sailed the world thousands of<br>
+years ago they sailed close to land so<br>
+initially they would have sailed around<br>
+Ireland's rivers and then Ireland's<br>
+outlying islands and then over to<br>
+Scotland and Wales Cornwall and England<br>
+France and Spain etc when they were<br>
+going across the Atlantic dis sail to<br>
+Iceland that's a five to seven days sail<br>
+in a popcorn boat which we learned of it<br>
+later<br>
+it's another five to seven days to<br>
+Greenland but after 14 days of sailing<br>
+you can now seal the entire world<br>
+without straying too far from land which<br>
+is the smart way to do it that's also<br>
+how thousands of years later the Vikings<br>
+sailed<br>
+they sailed from land to land rather<br>
+than across large seas and oceans which<br>
+is very dangerous much safer to stay at<br>
+closer to land<br>
+whenever Columbus found America<br>
+thousands of years later he sailed<br>
+directly across the ocean and the voyage<br>
+is supposed to have taken six weeks<br>
+however by sailing from Ireland using<br>
+this route<br>
+it also takes about six weeks to make<br>
+the same journey but it's much safer and<br>
+you need a lot less supplies to make the<br>
+journey so that's how they did haven't<br>
+studied the 50 largest islands on earth<br>
+there is only one that has a central<br>
+plants around<br>
+Mountains Ireland Ireland is also an<br>
+island in the Atlantic Ocean just like<br>
+Plato described the exact location of<br>
+Atlantis the player gave us was in front<br>
+of the Straits of Gibraltar which would<br>
+be here and Ireland is here that's<br>
+pretty close and bearing in mind the<br>
+Greek knowledge of geography wasn't as<br>
+developed as our current knowledge is<br>
+today it should also be pointed out that<br>
+the legend of Atlantis was given to<br>
+Plato by someone who got it from someone<br>
+else got it from someone else got it<br>
+from someone else who got it from a<br>
+priest in Egypt telling him about<br>
+something that happened 9,000 years<br>
+previously it's astonishing it was as<br>
+accurate as it is in Atlantis we find a<br>
+circular temple to Poseidon with a<br>
+strange barbaric appearance that<br>
+measures half a stadia wide this is a<br>
+reference to Newgrange in Ireland boy in<br>
+Bali which measures half a stadion<br>
+diameter and is probably the world's<br>
+oldest temple now half a stadia is 83<br>
+meters<br>
+Newgrange is 84 or 85 meters depending<br>
+which measure that you use today - spoke<br>
+about the capital being 50 stadia from<br>
+the sea the buying valley was the<br>
+ancient capital of Ireland and is 50<br>
+stadia from the sea which is 8.3<br>
+kilometers and as we pointed out earlier<br>
+a stadia is a hundred and sixty-six<br>
+meters Plato told us that 9,000 years<br>
+before the time of Solon in a great<br>
+disaster Atlantis was utterly destroyed<br>
+by water or it was swallowed by the sea<br>
+or it was drowned he used different<br>
+words so 9,000 years before the time of<br>
+Solon is eleven thousand six hundred<br>
+years before present and this is the end<br>
+of the Younger Dryas or the mini ice age<br>
+period so the depth the player will give<br>
+us has been independently found by<br>
+scientists and geologists as a time of<br>
+extreme climate change on earth which we<br>
+will speak about later plate a spoke of<br>
+a great disaster<br>
+disaster is a Greek word which means bad<br>
+or evil star such as a comet striking<br>
+earth if you break down the word<br>
+disaster its disaster<br>
+star bad or evil star before Atlantis<br>
+was utterly destroyed by water swallowed<br>
+by the sea or drowned before Atlantis<br>
+Ireland was drowned by a large tsunami<br>
+floods and ocean earthquakes all<br>
+triggered by a huge comet impact the<br>
+comet struck the Atlantic Ocean near the<br>
+Puerto Rico Trench later on we will show<br>
+you the exact location of the impact<br>
+this is a picture of Newgrange the<br>
+circular temple to Poseidon that Plato<br>
+described with a strange barbaric<br>
+appearance measuring half stadia wide<br>
+this is probably the oldest temple on<br>
+earth it's aligned the Sun it's also<br>
+aligned to the moon and the stars and<br>
+the level of astronomical alignment in<br>
+this building is truly incredible<br>
+Ireland benefited from the warm Atlantic<br>
+Gulf Stream during the Ice Age this is<br>
+important because Ireland is occupied by<br>
+humans much much longer than the<br>
+mainstream currently except unlike a lot<br>
+of our work we simply have to wait for<br>
+the science to catch up so here's the<br>
+important things to note the Gulf Stream<br>
+is like the plumbing system of Earth and<br>
+the warm glad the Gulf Stream washed<br>
+Ireland shore through out of the Ice Age<br>
+now there is no doubt that parts of<br>
+Ireland at some stage over the last two<br>
+or three million years had large ice<br>
+fields some and possibly all of the<br>
+island were under ice but the point here<br>
+is that Ireland's ice melted much much<br>
+earlier than people realize the flora<br>
+and fauna of Ireland has unique genetics<br>
+not found in breath<br>
+or anywhere else in the world and these<br>
+genetics are much older than the<br>
+comparable ones from Britain indicating<br>
+that Ireland has been occupied by<br>
+animals for much longer than people<br>
+realized flint tools have been found in<br>
+ireland in three separate independent<br>
+locations these tools are dated back at<br>
+least three to four hundred thousand<br>
+years and there is no good reason to<br>
+suspect that ireland has not been<br>
+occupied since then the current<br>
+academics theory that these tools were<br>
+dumped off in ireland by and lacier is<br>
+ridiculous<br>
+they're man-made tools used by men and<br>
+women in ireland three or four hundred<br>
+thousand years ago and ireland has been<br>
+occupied ever since even during the<br>
+Younger Dryas or mini Ice Age period<br>
+Ireland has been occupied for hundreds<br>
+of thousands of years possibly 1 million<br>
+years when you study the Ice Age and the<br>
+Younger Dryas period you realize that<br>
+Ireland was inhabited by humans much<br>
+much longer than people realize also in<br>
+the Younger Dryas period which was known<br>
+as the mini ice age which and eleven<br>
+thousand six hundred years ago right in<br>
+the middle of that period they have<br>
+found bare bones that were butchered by<br>
+man-made tools so right in the middle of<br>
+the coldest period in the last twenty<br>
+thousand years the Irish were hunting<br>
+and eating bears<br>
+that'll tell you how advanced the where<br>
+the deaths associated with Newgrange and<br>
+Ireland's monuments are not reliable it<br>
+makes more sense to add a zero to each<br>
+one of them Ireland has occupied so much<br>
+longer than people realize and every<br>
+year the dates keep getting pushed back<br>
+the Greeks called Ireland earned which<br>
+means the sacred Isle it's derived from<br>
+the Greek boards arias and leases<br>
+meaning sacred I<br>
+our startle told us that in the ocean<br>
+beyond the pillars of Herakles are two<br>
+islands Albion Britain the white island<br>
+Britain was called white island because<br>
+of the White Cliffs of Dover the ancient<br>
+Irish also called it the white island<br>
+and earn the sacred island Ireland<br>
+beyond the county which was France<br>
+by the way the Irish were not cats they<br>
+were girls the cats were the descendants<br>
+of the Gaels<br>
+Greek mythology also describes a race of<br>
+giants called Hyperborean who live on an<br>
+island which is Ireland beyond the land<br>
+of the goal which is France<br>
+this island is both fertile and<br>
+productive every crop and has an<br>
+unusually temperate climate priests with<br>
+harps and a magnificent circular temple<br>
+which is Newgrange<br>
+Roman writers referred to Ireland as<br>
+insula sacra the sacred Island the<br>
+island of sins or the island of the<br>
+learned<br>
+hence the modern-day description of<br>
+Ireland being the land of saints and<br>
+scholars now the Romans didn't hold a<br>
+much sacred but to describe Ireland a<br>
+sacred when something is described in<br>
+history a sacred it gets that<br>
+description because it dates back to the<br>
+most ancient of times the spectrum<br>
+regalia also known as the Kings mirror<br>
+from Norway referred to the sacred soil<br>
+of Ireland and her new serpent could<br>
+survive there interestingly Ireland does<br>
+not have snakes Britain does France does<br>
+the rest of the world us Aaron doesn't<br>
+Ireland is sometimes referred to as the<br>
+island of the Setting Sun when we moved<br>
+to the east of the world into Asia we<br>
+find that the Hindu people in the<br>
+ancient Sanskrit texts mentioned the<br>
+ancient history of Ireland and it's<br>
+sacred ground aaron has been described<br>
+as su Arnold with the golden island it<br>
+also means beautiful most beautiful<br>
+excellent and has been translated as the<br>
+happy heart the word su Vanya is<br>
+developed from Salonika from the<br>
+earliest periods the Hindus considered<br>
+savonia the abode of the Patrese the<br>
+fathers of the manu the first man we are<br>
+told in the sanskrit text that the first<br>
+men were obliged to leave their favorite<br>
+abode but we are not old white and one<br>
+time both Ireland and Scotland were<br>
+called Scott Ian the name of Scotland is<br>
+derived from the latin word scotty a'<br>
+which means land of the gills the links<br>
+between the Irish and the Scots go back<br>
+to the most ancient of times the Gaelic<br>
+language and culture originated in<br>
+Ireland and was spoken across Scotland<br>
+the European Celts were the descendants<br>
+of the Irish girls<br>
+Ireland has had many names throughout<br>
+history Aaron Aaron II Hibernia Aaron<br>
+era<br>
+Scotty ax the land of the Setting Sun<br>
+the land of the flame the land of saints<br>
+and scholars the land of giants and the<br>
+Emerald Island we can now add another<br>
+name to that list Atlantis in these two<br>
+photographs we've got the Cliffs of<br>
+Moher on the west coast of Ireland and<br>
+we've got one of Ireland's dolmens The<br>
+Cliffs of Moher are spectacular steep<br>
+cliffs on the west of Ireland<br>
+just like cleared or described on one<br>
+side of the island<br>
+that's the Cliffs of Moher if the<br>
+ancient Irish really did sail the world<br>
+we would expect to find the genetics all<br>
+over the globe and we do the<br>
+stereotypical Irish genetics of red hair<br>
+blue eyes a milky white skin is the<br>
+rarest genetic combination on earth less<br>
+than 1 million people on the planet<br>
+that's point zero zero zero one percent<br>
+of the entire human population of these<br>
+genetics red hair which ranges from<br>
+strawberry blonde<br>
+to fair to fiery red to Auburn is<br>
+thought to have first appeared around 40<br>
+or 50 thousand years ago and blue eyes<br>
+are thought to have originated around<br>
+ten or fifteen thousand years ago with<br>
+one single ancestor an atom or an Eve<br>
+type character anywhere we find pockets<br>
+of redheads we find descendants of the<br>
+ancient Irish unsurprisingly Ireland has<br>
+the highest concentration of red hair<br>
+genetics anywhere in the world the<br>
+direct historical descendants of the<br>
+ancient Irish include the Phoenicians<br>
+the Hebrews and the indo-european Aryans<br>
+the word Aryan means from Aaron Aaron is<br>
+Ireland's ancient near the Tara Marion<br>
+was hijacked by the Nazis and several<br>
+others but the true mean in this Aryan<br>
+means from Aaron Egyptian pharaoh<br>
+ramasees ii often said to have been the<br>
+greatest of all pharaohs had reddish<br>
+fair hair at least six other pharaohs<br>
+are known to have red fair or auburn<br>
+hair when even the legendary cleopatra<br>
+is depicted as having red hair<br>
+Tutankhamun's genetic profile which is<br>
+or m269 is found in the highest<br>
+concentration in Ireland the Irish are<br>
+part of the same genetic group as the<br>
+lineage of the Pharaohs thousands of<br>
+blonde and red haired mummies have been<br>
+found all across Egypt red haired<br>
+mummies have also been found all over<br>
+the world including in New Zealand China<br>
+Peru and Alaska and several other places<br>
+there are also numerous legends from<br>
+around the world of a highly advanced<br>
+race of bearded sunburnt redheads there<br>
+are also numerous legends of an early<br>
+Reyes<br>
+red-haired Giants between 8 and 12 foot<br>
+tall both red hair and blue eyes are<br>
+recessive traits in order to display<br>
+them you must get the genes from both of<br>
+your parents interestingly there are<br>
+some other things like blood groups and<br>
+rhesus negative blood that is also<br>
+related to Irish genetics which we're<br>
+not going to go into today ultimately<br>
+the theory of Atlantis Ireland rests on<br>
+one simple fact the irish invented boats<br>
+before anybody else the incheon irish<br>
+invented boats and sailed from the<br>
+earliest of times haven't mastered<br>
+sailing on Ireland's rivers they first<br>
+sailed to Ireland's outlying islands<br>
+such as the Aran Islands Tory Island<br>
+rattlin Island Bowl Island skellig<br>
+michael and several other islands before<br>
+sailing the short distance of nineteen<br>
+kilometers to Scotland before eventually<br>
+sailing the world this top image is of a<br>
+Bangkok the oldest boat on earth the<br>
+Bangkok was used in Ireland since the<br>
+Stone Age and is the oldest boat on<br>
+earth it's also known as a car<br>
+similar boats are used by native people<br>
+all over the world the Bangkok developed<br>
+into a range of different river and sea<br>
+coral boats which are capable of longer<br>
+distances are many are still used today<br>
+the Karaka also evolved into a range of<br>
+much larger boats including the Pecan<br>
+which is also known as the Galway hooker<br>
+boat which is virtually identical to the<br>
+Arab diable the pecan is capable of<br>
+sailing the wound and carrying<br>
+significant terrible there are many<br>
+names for boats and arond including the<br>
+pecan God with her current board more<br>
+several others sailing around our<br>
+Islands three thousand one hundred and<br>
+seventy one kilometer coastline was the<br>
+perfect training for global voyages if<br>
+you could say in a Ron Ireland you could<br>
+sail the world<br>
+the Irish sailed from island to island<br>
+rather than directly across the oceans<br>
+as an island nation in the Atlantic<br>
+Ocean it was natural but sailing was<br>
+first developed in Ireland who has a<br>
+very very long history of sailing and<br>
+boat building in more recent times the<br>
+Titanic the most famous ship of all time<br>
+was built in Belfast Ireland's ancient<br>
+annals contained numerous legends of<br>
+voyages to the four corners of the world<br>
+from the earliest of times the<br>
+Phoenicians sea merchants were Irish<br>
+settlers who built scores of cities in<br>
+the Mediterranean and North Africa when<br>
+the Egyptian pharaohs first took to the<br>
+high seas they hired the best of the<br>
+best the Phoenicians Irish so here's<br>
+some old footage of a croc we made these<br>
+boats were also called basket boats<br>
+there we can see the cowhide that made<br>
+the boat waterproof and here we see the<br>
+weaving well there is these boats were<br>
+use for fishing and sailing along the<br>
+river since the Stone Age<br>
+these boats evolved into a sea version<br>
+this was much larger and this would have<br>
+been the first large-scale boat in the<br>
+world it's made using the exact same<br>
+techniques weaving and animal hide and<br>
+this one also has a sail it evolved into<br>
+a car<br>
+the garlic on the board more spectacular<br>
+boats these boats are the origin<br>
+the Arab diable and our capable of<br>
+holding significant cargo with these<br>
+boats the ancient Irish mastered the<br>
+high seas<br>
+the engine irish were the world's first<br>
+builders and stonemasons they were the<br>
+first race to develop construction and<br>
+architecture they built stone edge<br>
+constructions such as standing stone<br>
+circles mounds Cairns and diamonds all<br>
+over the world stone circles have now<br>
+been found in virtually every country on<br>
+earth proven that the entire world not<br>
+just Ireland has a spectacular ancient<br>
+history standing stones have been found<br>
+all across Europe the Americas Asia and<br>
+Africa we have listed some of the<br>
+countries there although the list is<br>
+virtually every country on Earth the top<br>
+picture is just a normal sad astounding<br>
+stones in time declare the bottom<br>
+picture is from them not the player<br>
+stone circle in Egypt which was the<br>
+birthplace of Egyptian civilization the<br>
+ancients were masters of magnetism and<br>
+many stone circles have peculiar<br>
+magnetic properties there are many<br>
+theories as to what the stone circles<br>
+were used for they were multi-purpose<br>
+constructions one of their uses was<br>
+healing they were also used for<br>
+astronomy as gathering places to decree<br>
+laws and there were several other uses<br>
+now let's look at the mound builders<br>
+there are thousands of mines all across<br>
+Ireland they usually called fairy force<br>
+the most spectacular are found in the<br>
+buying valley an astonishing two hundred<br>
+thousand tons of earth and stone was<br>
+moved to build a new grange mound alone<br>
+america has an incredible ancient<br>
+history that most of her people are<br>
+completely unaware of there are hundreds<br>
+of mines all over the Americas from the<br>
+most ancient of times the Native<br>
+American people have countless stories<br>
+and legend of a giant race of man who<br>
+built these huge mounds a New York Times<br>
+article from 1897 described a mound in<br>
+Wisconsin in which a giant human<br>
+skeleton measuring over 9-foot was found<br>
+in 1886 another New York Times article<br>
+described water receding from a mound in<br>
+Cartersville Georgia<br>
+which uncovered acres of skulls and<br>
+bones some of which were said to have<br>
+been gigantic - thighs remeasured with<br>
+the height of their owner estimated at<br>
+14 foot President Abraham Lincoln made<br>
+reference to the Giants whose bones fill<br>
+the minds of America he said that the<br>
+eyes of that species of extinct Giants<br>
+whose bones fill the minds of America<br>
+have gears on the Niagara Falls as urge<br>
+do now<br>
+man's are also known as tumulus and<br>
+affirm across Britain Europe Asia Africa<br>
+and America if we take a look at this<br>
+top image this is typical man's times in<br>
+America the bottom image is in North in<br>
+Ireland's Boyan Valley the mines are<br>
+virtually identical because it was the<br>
+same people who built them Karen is an<br>
+old Irish word which means stacked or<br>
+piled rocks Cairns are found all across<br>
+the world and were used as burial sites<br>
+or as landmarks Cairns are also found in<br>
+North America and are sociated with the<br>
+Native American people in one example<br>
+they mark a game driving lien called the<br>
+Buffalo jumps which may date back to at<br>
+least 12,000 years ago<br>
+so the Buffalo Jones what they did there<br>
+was they marked they lien that they were<br>
+driving wild buffalos with Cairns wood<br>
+stacked stones and essentially what they<br>
+did was they drove the Buffaloes across<br>
+a cliff<br>
+obviously the purple fellows fell to<br>
+their death and it provided the tribe<br>
+with meat so Karan's have been used for<br>
+that type of thing all around the world<br>
+Caryn's were also used as landmarks and<br>
+signpost cysts of burial chamber and a<br>
+new ski is a form of stack rocks uses<br>
+the landmark and found all of the arc<br>
+region of Canada Greenland and Alaska so<br>
+the bottom picture there is the stacked<br>
+rock version of a current the top<br>
+picture is a more elaborate pile rocks<br>
+the ancient African city of Kern and<br>
+Mauritania derives its name from the<br>
+Irish word Karen Karen was plato's lost<br>
+city of Atlantis<br>
+Mauritania had a huge stone age<br>
+population and was thought to be the<br>
+birthplace of civilization in Africa the<br>
+Fertile Crescent region in the Middle<br>
+East also had a huge quantity of Carens<br>
+diamonds and stone circles from ancient<br>
+times at one time both areas had very<br>
+fertile lands Mauritania and the Fertile<br>
+Crescent there are many legends linking<br>
+the ancient Irish to both Mauritania and<br>
+the Middle East in the mythology of<br>
+ancient Greece Cairns were associated<br>
+with Hermes the Greek god of wisdom and<br>
+this Hermes was a grandson of Atlas<br>
+after whom the Greeks knew in the island<br>
+of Atlantis the city of Atlantis the<br>
+Atlantic Ocean the Atlas Mountains in<br>
+North Africa and the Atlanteans the<br>
+descendants of Atlantis some consider<br>
+the Greek god Hermes and the Egyptian<br>
+god Thoth who was the Egyptian god of<br>
+wisdom to be interchangeable south of<br>
+course was one of the founders of<br>
+Egyptian civilization the word Dallman<br>
+means stone table Darlins are also<br>
+called portal or passage tombs there are<br>
+a hundred and nineteen endowments across<br>
+Ireland and many more that are<br>
+unaccounted for or have yet to be<br>
+discovered<br>
+diamonds are also found across the world<br>
+in Britain France Germany Holland<br>
+Portugal Spain Italy Bulgaria Russia<br>
+Asia America and Africa the largest<br>
+almond in North America at North Salem<br>
+has a capstone estimated to weigh an<br>
+incredible 90 tons there are thousands<br>
+of Darwin's in Asia especially in India<br>
+and Korea the largest of concentration<br>
+Darwin's in the world is found in North<br>
+and South Korea or an estimated 35,000<br>
+almonds are fine<br>
+some Korean diamonds depict astronomical<br>
+formations and are dated to around 3000<br>
+BC the people of North and South Korea<br>
+have an incredible shared history as do<br>
+the people of Palestine Israel Syria<br>
+Iran Iraq and Jordan who have an ancient<br>
+stone age shared history as in fact as<br>
+the entire world in the Basque Country<br>
+dolmens are attributed to a race of<br>
+giants dolmens are also attributed to a<br>
+race of giants in many legends from<br>
+ancient Germany all right was claimed at<br>
+Mauritania Africa was a great center of<br>
+Stone Age culture with as many as 10,000<br>
+Stone Age constructions including<br>
+Dallman scarrans stone circles and mines<br>
+in the form of step pyramids this top<br>
+image is a dominant in Korea the bottom<br>
+image is a Dallman in Ireland Ireland<br>
+has an estimated 50,000 ring forts many<br>
+have concentric rings of land and water<br>
+and with the base of chieftains of<br>
+royalty secret underground escape<br>
+passages called pseudo Ian's ran from<br>
+many of Ireland's ring forts<br>
+interestingly the escape passages are 3<br>
+4 5 foot tall which indicates a small<br>
+risk a race if you like of dwarves or<br>
+hobbits<br>
+in the Irish language forts are known by<br>
+a number of names including Roth dune<br>
+and Tasha another origin of many Irish<br>
+time names in Ireland they are also<br>
+known as fairy forts or the home of the<br>
+little people the little people are<br>
+sometimes called the she the modern<br>
+English word castle is derived from the<br>
+ancient Irish word cassia spectacular<br>
+ring forts are also found at Britain<br>
+particularly in Cornwall for the ancient<br>
+Irish traded tin-head forts are a<br>
+version of ring fort that are found on<br>
+hilltops or cliff edges forts are found<br>
+across Britain Europe Scandinavia and<br>
+Russia more than 450 huge earthworks<br>
+have been discovered in Brazil including<br>
+several circular ring forts this bottom<br>
+picture is a circular ring fort phone in<br>
+the Amazon in Brazil the top picture is<br>
+a circular ring fort found in County<br>
+Roscommon interest neat it's got three<br>
+concentric circles of land and at one<br>
+time it would have had water in those<br>
+moats<br>
+that is not the city of Atlantis Plato<br>
+described but interestingly it does have<br>
+three concentric circles of land water<br>
+products our circular forts built on<br>
+artificial islands in lakes and rivers<br>
+the builders constructed artificial<br>
+islands for protection as it was a lot<br>
+easier to defend the word traveled<br>
+literally means young tree drive from<br>
+the Irish word cran for tree and oak for<br>
+young ireland has an estimated 1,200<br>
+panels while Scotland has around 500<br>
+there is also a handful and Wales they<br>
+are not believed to be found anywhere<br>
+else in the world some Scottish crown<br>
+Oaks are older than Stonehenge crannis<br>
+consist of circular Hut buildings as did<br>
+most Irish ring forts the only<br>
+difference between a trommel and a ring<br>
+fort is a chrono is surrounded by warm<br>
+but the same circular huts were used<br>
+whether a fort was built on water or on<br>
+land<br>
+similar circular buildings are found<br>
+among indigenous people all over the<br>
+world some are built on stilts rather<br>
+than man-made islands while most are<br>
+built<br>
+on land using virtually identical<br>
+construction techniques many South<br>
+American tribes still construct very<br>
+similar structures such as these<br>
+thoughts from Colombia as you can see<br>
+the huts in the cran org and the South<br>
+American tribes are almost identical<br>
+Tran olds are not thought to exist<br>
+anywhere else in the world other than<br>
+Ireland Scotland and handful and Will's<br>
+but the construction technique of<br>
+circular buildings is found all over the<br>
+world most South American tribes contain<br>
+legends of red-haired or fair-haired<br>
+sunburnt and usually bearded people<br>
+arriving in boats and teaching them<br>
+farming and construction henges are<br>
+found across Ireland in Britain drawn<br>
+henge is a nickname given to a huge<br>
+monument discovered in 2018 with a 200<br>
+meter diameter making it the largest<br>
+neuen henge on earth this hand has not<br>
+yet been excavated<br>
+there was also an enormous circular<br>
+henge at keren bagged and dog hunting<br>
+lathe which was destroyed sometime in<br>
+the 1800s and there are many records and<br>
+drawings of this henge in old irish<br>
+books Stonehenge in Wiltshire England is<br>
+a spectacular henge and one of the most<br>
+famous historical sites on earth Gerald<br>
+of Wales wrote that Marilyn talked the<br>
+large stones to England from the plains<br>
+of Kildare Ireland he also gives the<br>
+origin of these stones as africa and<br>
+claimed that they were carried through<br>
+the air to Ireland by giants in 11:36<br>
+Welshman Geoffrey of Monmouth wrote the<br>
+history of the kings of Britain which<br>
+contained many epic tales including the<br>
+legends of King Arthur according to<br>
+Geoffrey Britain was first populated by<br>
+giants during the era before the Great<br>
+Flood Geoffrey also claimed that the<br>
+rocks of Stonehenge were healing rocks<br>
+called the Giants dance of the Giants<br>
+ring which Giants had originally bought<br>
+from Africa to Ireland for their healing<br>
+properties<br>
+and that Merlin the wizard along with<br>
+King Uther Pendragon father of King<br>
+Arthur took the stones from Ireland<br>
+after slaughtering 7,000 Irish just for<br>
+the record we are not saying that that<br>
+is the origin of Stonehenge that's what<br>
+the British themselves say in their own<br>
+mythology Geoffrey of Monmouth also<br>
+claimed that Britain was founded by the<br>
+Greek Brutus of trying after Brutus had<br>
+defeated the Giants who were the only<br>
+inhabitants of Britain which at the time<br>
+was called Albion Brutus established new<br>
+Troy which later became known as London<br>
+on the banks of a fence<br>
+Brutus also named the island Britain<br>
+after himself Brutus was well known in<br>
+many evil England as the first King of<br>
+Britain probably the most famous line in<br>
+any of Shakespeare's plays is the line<br>
+even you Brutus<br>
+when Brutus the betrayer stabbed his<br>
+best friend Julius Caesar in the back it<br>
+should be pointed out that the Brutus<br>
+that named Britain after himself is not<br>
+the same Brutus that stabbed Julius<br>
+Caesar in the back he was called Brutus<br>
+the backstabber<br>
+the Brutus that named Britain after<br>
+himself<br>
+was Brutus of Troy today the ward Brutus<br>
+is associated with betrayal and<br>
+treachery but the original meaning of<br>
+the word Brutus was savage animal<br>
+ignorant or dense if you look at these<br>
+two pictures the top image was the<br>
+discovery of groom henge the bottom<br>
+image is what it looked like at its peak<br>
+interestingly drone henge may have been<br>
+buried to protect<br>
+Erol has not been heavily excavated over<br>
+the years and there are thousands and<br>
+thousands of unexamined and undiscovered<br>
+sites a recent drought parched the land<br>
+and revealed thousands of previously<br>
+unknown structures for a previously<br>
+unknown monuments have been recently<br>
+identified in the vicinity of new range<br>
+alone so if we look at this top image<br>
+there's Newgrange the most famous Stone<br>
+Age temple on earth and all of these new<br>
+structures were found within a mile<br>
+radius this was the capital of Atlantis<br>
+Ireland at one time in 2018 Irish<br>
+historian and photographer Anthony<br>
+Murphy discovered Rome henge and dozens<br>
+of other sites simply using a drone and<br>
+Google Earth the same tools can be used<br>
+all across the world to identify<br>
+historical sites analysis of a butchered<br>
+knee bone from a brown bear which was<br>
+found in a cave and County Clare<br>
+indicates that humans lived on the<br>
+island of Ireland 12,500 years ago right<br>
+in the middle of the Younger Dryas mini<br>
+Ice Age period when Ireland is supposed<br>
+to have been deserted this also shows<br>
+that the ancient Irish were eating bears<br>
+and most likely hunting them three<br>
+separate sets of manmade Stone Age<br>
+Flint's have been found in Ireland<br>
+dating back at least 300,000 years and<br>
+possibly much more the current estimate<br>
+on them is three to four hundred<br>
+thousand years humans have lived on<br>
+Ireland at least ten times longer than<br>
+the current estimates we will all have<br>
+to wait for the science to catch up on<br>
+this one new scientific research proves<br>
+that the warm waters of the Atlantic<br>
+Gulf Stream continued to flow during the<br>
+Ice Age while at one time most and<br>
+possibly even all of Ireland was on a<br>
+glacial ice sheet this was much further<br>
+back in time than the current estimates<br>
+suggest although Britain and Ireland are<br>
+neighbouring Islands the difference in<br>
+their native species is astonishing<br>
+Ireland has many unique species for<br>
+example the Irish hair and stoat are<br>
+genetically very different and much<br>
+older than the British kind of<br>
+proving that Ireland was habitable much<br>
+earlier to Britain there are many unique<br>
+plants ports freshwater fish and eels in<br>
+Ireland by the way eels are on earth for<br>
+about 300 million years making them the<br>
+oldest fish on earth we love opinion<br>
+that eels holds the key to understand an<br>
+evolution on earth<br>
+located near Dublin is the boy in valley<br>
+the capital of ancient Ireland and it's<br>
+located in a fertile central plain just<br>
+as the legend of Atlantis described<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+the hellotara was once the ancient seat<br>
+of power in Ireland the High King of<br>
+Ireland satyr Tara and to this day a<br>
+kindly made is known as the Royal Kunti<br>
+according to mythology Ireland's ancient<br>
+Coronation Stone Dahlia for the Stone of<br>
+Destiny was bought to Tara by the<br>
+godlike people the to a hardy diamond as<br>
+one of their sacred objects it was said<br>
+to roar when touched by the rightful<br>
+king of ireland an egyptian bead<br>
+necklace was found at the hellotara<br>
+during an excavation in 1955 in ancient<br>
+times new laws were decreed and decided<br>
+a Tara making it the world's first and<br>
+the father of all Parliament's at least<br>
+a hundred new monuments have been<br>
+discovered on the Hill of Tara<br>
+thanks to non-invasive scanning<br>
+technology only two monuments Tara have<br>
+ever been excavated Tara is an absolute<br>
+treasure trove of ancient history that<br>
+has never been excavated as is the<br>
+entire blind valley as is the entire<br>
+island of Ireland for that matter<br>
+interestingly early in the 20th century<br>
+a group of Israelites came to Tara<br>
+with the conviction that the Ark of the<br>
+Covenant was buried on the famous Hill<br>
+an interestingly the ancient Hebrew and<br>
+Irish languages are very similar some<br>
+even think that Christianity didn't come<br>
+to Ireland it came from Ireland and got<br>
+mutilated the further it got from its<br>
+source also close to the hellotara is<br>
+the Tara mines these are the largest<br>
+zinc mines in all of Europe and there is<br>
+also concrete quarries both of which<br>
+were used from ancient times the ancient<br>
+Irish invented concrete not the Romans<br>
+Newgrange is the circular temple of<br>
+Atlantis that Plato described as been<br>
+half a stadia white half a stadia is 83<br>
+meters<br>
+newgrange's 84 or 85 meters depending on<br>
+which measurements you take Newgrange is<br>
+probably the oldest temple on earth the<br>
+entire Newgrange mountain Taine's an<br>
+estimated two hundred thousand tons of<br>
+material that was moved to and around<br>
+the site<br>
+it's Assam and that the construction<br>
+would have taken 30 years with a<br>
+workforce of about 300 highly-skilled<br>
+master builders stonemasons and<br>
+architects some materials were<br>
+transported from over 50 kilometres away<br>
+the outside of the temple is coated with<br>
+a white course a magnetic stone the<br>
+ancient Irish were masters of magnetism<br>
+sacred ancient knowledge regarding<br>
+magnetism ley lines and the<br>
+magnetosphere has been lost and a width<br>
+rediscovery the man represents the womb<br>
+and fertility<br>
+it symbolizes father son fertilizing<br>
+Mother Earth with its life-giving rays<br>
+at the winter solstice and the harvest<br>
+nine months later the winter solstice<br>
+usually on December 21st it's the time<br>
+of the year when the Sun falls to the<br>
+lowest point in the sky and remains<br>
+there for three days before rising again<br>
+on December 25th December 25th was the<br>
+pagan festival of the Unconquered Sun<br>
+which signaled the rebirth of a new year<br>
+nine months later on August 21st the<br>
+autumn equinox celebrated the end of the<br>
+harvest similar mythology is associated<br>
+with the Native American lands so the<br>
+ancients worshipped nature the Sun the<br>
+Moon the earth the elements water all<br>
+these things the ancients called the Sun<br>
+the son of God are God's Son and the<br>
+mound represented the female pregnant<br>
+belly and the womb they honored<br>
+male and female equally most crops take<br>
+nine months from start to finish a human<br>
+pregnancy takes<br>
+nine months from start to finish most<br>
+animal pregnancies the cow for example<br>
+takes nine months from start to finish<br>
+and the cow was sacred and ancient and<br>
+it by the way is the origin of the holy<br>
+cow worshipped all around the world<br>
+newgrange's alignment with the Sun<br>
+allows for leap years the highly<br>
+advanced Egyptians never managed this<br>
+feat and had to introduce a fourteen<br>
+hundred and sixty year suffix cycle to<br>
+overcome it this points to a truly<br>
+stunning level of intellectual and<br>
+mathematical achievement by the ancient<br>
+Irish the - I had the Danone the tribe<br>
+of the gods who had one time ruled<br>
+Ireland were said to have her acted new<br>
+wrench in these two photographs and the<br>
+top photograph we get an image of<br>
+Newgrange circular temple covered white<br>
+magnetic quartz the bottom image is the<br>
+passage as you can see that represents<br>
+the light fertilizing the womb on the<br>
+24th of December 21st of December the<br>
+winter solstice was a sacred time that's<br>
+when the Sun died in the sky in other<br>
+words it stopped falling or rising it<br>
+just Stood Still and then it rose again<br>
+three days later on December 23rd the<br>
+pagan festival of the uncomfortable Sun<br>
+was celebrated all over Europe at the<br>
+time including in Rome Greece Egypt<br>
+ireland britain france spain etc<br>
+Newgrange has a lot of Stone Age<br>
+carvings which represent the Sun the<br>
+moon and the stars one of the carvings<br>
+is the moon bull or the lunar bull this<br>
+is one of the most sacred teachings in<br>
+the ancient Egyptian religion which they<br>
+got from Atlantis the carvings also<br>
+contain sacred geometry symbols<br>
+including the seed of life in ancient<br>
+Ireland the Sun represented Lou and was<br>
+seen as the shining face of God the<br>
+light of the world<br>
+the ancient Irish Owen tree alphabet is<br>
+the oldest alphabet in the world<br>
+it not only predates other codes of<br>
+writing it is as old as the Stone Age<br>
+itself the own language features heavily<br>
+in Irish mythology suggesting its use<br>
+from the most ancient of times it was<br>
+called a tree alphabet as most home was<br>
+carved into trees and timber posts<br>
+although it was also carved into stones<br>
+just like this image there are roughly<br>
+400 stones known to contain our markets<br>
+360 of which are in Ireland one<br>
+contained 25 characters each of which<br>
+was both a letter and number and it was<br>
+also a secret hand signal your five<br>
+fingers and it was five sets of five was<br>
+how it would the old tree alphabet has<br>
+been found in an ancient Arabic<br>
+manuscript found in Egypt and all<br>
+inscriptions have also been found in<br>
+Colorado USA ohm is very similar to the<br>
+ancient quipu a knotted string alphabet<br>
+used by the Incas similar knotted string<br>
+alphabets were used by the ancient<br>
+Chinese Hawaiians and some orders of<br>
+monks the Phoenicians used very similar<br>
+numbers to or some suggest ohm is a<br>
+string language just like computer<br>
+programming all spirals just like a tree<br>
+the book of Baal emote contains a full<br>
+translation of om and is the rosetta<br>
+stone for the world's ancient written<br>
+languages and legends attribute the<br>
+invention of all um to augment a deity<br>
+of Irish mythology and a member of the<br>
+Tour de Donna the tribe of the gods the<br>
+development of a language is a long and<br>
+slow process that occurs over many<br>
+thousands of years the ancient Irish<br>
+language has almost 1 million words<br>
+while most languages has less than<br>
+200,000 which gives you an indication<br>
+how old and developed the language was<br>
+what's even more impressive is that the<br>
+Irish language has not been in everyday<br>
+language in most parts of Ireland for<br>
+almost a thousand years and when the<br>
+British invaded Ireland the punishment<br>
+under the Penal laws of speaking Irish<br>
+was death anyone who even spoke the<br>
+language was executed there's an old<br>
+Irish expression from the time that says<br>
+our language was spoken long before the<br>
+English came and will be spoken long<br>
+after they're gone<br>
+the old Irish believed that it wasn't<br>
+those that could inflict the most<br>
+suffering but those that could injure<br>
+err that would eventually prevail<br>
+so the Irish language has survived in<br>
+difficult times had that language have<br>
+continued to be spoken by most people it<br>
+would have a lot more Awards today<br>
+thankfully the language has survived as<br>
+have many of the old books juices olam<br>
+is the missing link to the world's<br>
+written languages the Irish Gaelic<br>
+language is the missing link and the<br>
+rosetta stone that the world's spoken<br>
+languages the Old Gaelic Irish is the<br>
+missing indo-european root language the<br>
+mother tongue that scholars have sought<br>
+for centuries Ireland's ancient<br>
+languages the root of the old languages<br>
+of Babylon Arabia Phoenicia the Hebrews<br>
+and much more the first Irish and Hebrew<br>
+letters will call out after trees and in<br>
+Hindu Sanskrit the word area our area<br>
+means nubile the word aryan means from<br>
+aaron aaron is Ireland's ancient name<br>
+and the language of the era Cody the<br>
+ancient Irish and the Kuti the ancient<br>
+Persians is remarkably similar if we<br>
+take a look at these two illustrations<br>
+the top illustration is the ancient<br>
+Irish language it's incredibly<br>
+decorative it's very unique nowhere else<br>
+in the world uses ladders like that the<br>
+top images from the Puka cal is one of<br>
+the most famous books on earth the<br>
+language is beautifully crafted and it's<br>
+very ornate very well designed by the<br>
+way there is a secret code embedded into<br>
+the book of Cal's its illustrations and<br>
+the first letter of each chapter this<br>
+code is also embedded in many ancient<br>
+Irish books<br>
+the bottom image is from the book of<br>
+Baal emote and it is the only book on<br>
+earth<br>
+that explains the own language this is<br>
+the rosetta stone for the world's<br>
+languages if you take a quick look you<br>
+can see all the different characters of<br>
+the language and how it spirals outwards<br>
+you can also see here it's like a string<br>
+language DNA is also a string language<br>
+and computer programmers claim that the<br>
+olam language is created in the same way<br>
+as a computer language so there's<br>
+probably a lot more to that language<br>
+than meets the eye<br>
+the gift of Agriculture was one of the<br>
+greatest gifts ever given to humanity<br>
+farming began in Ireland with the<br>
+domestication of cattle horses goats<br>
+sheeps pigs file and wolf hands the kg<br>
+fields in Phantom Mayo are thought to be<br>
+the oldest agricultural fields in the<br>
+world various trees grew Akira fields<br>
+providing firewood building materials<br>
+and food ancient ploughs farming tools<br>
+and current stones used for the milling<br>
+of flour have all been found that the kg<br>
+fields as have livestock pans Ireland's<br>
+temperate climate lack of predators and<br>
+isolation made it perfect for the<br>
+development of farming now if you take a<br>
+look at that top image that's a picture<br>
+of the cagey fields which are located on<br>
+the Atlantic Ocean on the edge of some<br>
+very steep cliffs it's truly a<br>
+spectacular sight the bottom image is a<br>
+picture of wild barley cereals are the<br>
+edible greens of grass plants so old<br>
+sweets and Barney were crops first<br>
+developed in Ireland by selectively<br>
+breeding wild grasses the original<br>
+grasses such as meadow barley that were<br>
+first cultivated in Ireland still exist<br>
+and grow there in the wild and genetic<br>
+testing can prove this theory cereals<br>
+were the building blocks of the world's<br>
+great civilizations Egypt Greece Rome<br>
+and Britain were all built on them<br>
+without great serious there was no great<br>
+civilizations the ancient Irish used<br>
+charcoal to create highly fertile soil<br>
+and brought this technique to the world<br>
+charcoal traps nutrients and is a<br>
+breeding ground for soil bacteria which<br>
+is essential for soil health in South<br>
+America the soil that this technique<br>
+creates is called Terra Preta which<br>
+means dark earth charcoal water and soil<br>
+bacteria can torn even sand into fertile<br>
+soil charcoal which is often called<br>
+biochar can also be added to the diet of<br>
+cattle to reduce methane emissions and<br>
+indigestion the engine Irish also found<br>
+calque a vitamin rich sea lead which can<br>
+produce four ton of crop per acre of sea<br>
+so<br>
+the earliest times the engine IRA<br>
+survived on hunting on farming on<br>
+fishing but they also could eat seaweed<br>
+and seaweed is surprisingly nutritious<br>
+the inch and Irish probably invented the<br>
+wheel and first discovered fire<br>
+interestingly from the most ancient<br>
+times in Ireland the bonfire was a<br>
+sacred gathering there was bonfires to<br>
+celebrate Easter bonfires to celebrate<br>
+lúnasa Christmas and several other<br>
+festivals to this very day bonfires are<br>
+lit at Easter and lunasa while the<br>
+orange tradition in Ireland continued<br>
+the ancient Irish tradition by lighting<br>
+bonfires on the 12th of July the ancient<br>
+Irish made butter cream and cheese from<br>
+the milk of cows and goats which de<br>
+stored in cold underground pits and in<br>
+cold bogs 4000 year old bog butter has<br>
+recently been discovered and that top<br>
+picture is an image of the bog Bora<br>
+it's about 4000 years old the injured<br>
+Irish had refrigeration<br>
+Karnes tones were developed to mill<br>
+greens into flower as the injured Irish<br>
+had access to fire flower milk water and<br>
+eggs they were able to make bread all<br>
+year and storage of vegetables apples<br>
+and here some nuts were also vitally<br>
+important winter rushes herbs were also<br>
+grown and used as foods medicines and<br>
+vitamins the Irish from master fishermen<br>
+which provided year-round food as did<br>
+hunting the eel was a particularly<br>
+important source of highly nutritious<br>
+fats and vitamin C and bankers have been<br>
+used to fish for salmon since the Stone<br>
+Age<br>
+the Irish also hunted elk deer rabbit<br>
+squirrel and many other creatures a full<br>
+of fear was used to buy the water to<br>
+cook meats and stews for the community<br>
+stones were heated in a blazing fire<br>
+before being placed into the water to<br>
+boil it the phone of fear was also used<br>
+for the washing and dyeing of cloth and<br>
+working of leather phallic fears are<br>
+known as burnt Mane's and have been<br>
+found in Britain Sweden and Switzerland<br>
+there are thousands of them across<br>
+Ireland if we look at this bottom image<br>
+this is a full of fear so it's really<br>
+just a hole in the ground this is a is a<br>
+full of fear so it's a hole in the<br>
+ground here we've got timber and a lot<br>
+of stones he can just about see the<br>
+stones at the bottom and the stones are<br>
+heated and placed into the water which<br>
+then boils vegetables and meat are also<br>
+placed into the water to cook for the<br>
+community and then the byproduct of<br>
+burning the timber the ash would have<br>
+been used to fertilize the soil ash is<br>
+good for fertilizing the soil it's not<br>
+quite as good as charcoal but still it's<br>
+still beneficial beekeeping was first<br>
+developed in Ireland as was the milking<br>
+of cattle and goats and in the ancient<br>
+times Ireland truly was the land of milk<br>
+and honey it was an ancient Ireland that<br>
+cattle were first domesticated cattle<br>
+were used for milk meat and to pull<br>
+plows lactose tolerance is the ability<br>
+to breathe and the sugar<br>
+in non-human milk such as cow's milk and<br>
+lactose intolerance is the inability to<br>
+do this Arlen has the highest<br>
+concentration of lactose tolerance on<br>
+earth along with Denmark which has been<br>
+developed over thousands of years<br>
+indicating that the errors of milk from<br>
+ancient times<br>
+Ireland has several native breeds of<br>
+cattle including the Dexter carry Irish<br>
+mind and white park<br>
+the milk or milk cow was the highest<br>
+unit of currency under Ireland's ancient<br>
+breton laws the oldest laws on earth the<br>
+laws of the land one of the most famous<br>
+stories of Irish mythology is the cattle<br>
+reared of Coulee or the torn bull as<br>
+it's called an Irish which was an epic<br>
+tale fought over to prize Bulls one<br>
+white and one reddish-brown the<br>
+descendants of these cattle are the<br>
+modern-day white Park and limousine<br>
+breeds limousine cattle are one of the<br>
+world's top beef breeds however the<br>
+white park is an endangered rare breed<br>
+British cattle breeders in particular<br>
+have done an excellent job keeping this<br>
+rare Irish breed and many others I might<br>
+add alive the Milky Way got its name<br>
+from the ancient Irish astronomers who<br>
+described it as the way of the white cow<br>
+Ireland's the ancient astronomers<br>
+regarded it as a heavenly refraction of<br>
+the River Boyne as above so below if you<br>
+look at these two images the top image<br>
+is the two bulls from the brine bowl of<br>
+Cooley's story the bull on the left is<br>
+as you can see a radish frame that's the<br>
+modern day a limousine cattle the bull<br>
+on the right is the modern-day white<br>
+Park cattle which is also the cattle at<br>
+the bottom this is a beautiful ancient<br>
+breed I'm near to breed to Ireland this<br>
+breed is almost extinct there are very<br>
+few of these cattle left and hopefully<br>
+we see them we bred in Ireland and all<br>
+across the world they were a<br>
+dual-purpose breed which is probably why<br>
+they have died out a little they were<br>
+bought milk and beef whereas most cattle<br>
+nowadays is one or the other and they<br>
+perfectly matched the description of the<br>
+cattle found in the Irish mythology of<br>
+white cattle with black or colored noses<br>
+and ears now the Bulls scrotum was used<br>
+as the world's first football the<br>
+ancient Irish used a bull scrotum and<br>
+stuffed it with straw and hay and<br>
+stitched it together so the ancient<br>
+Irish were the world's first footballers<br>
+it was also an inch in Ireland that<br>
+horse<br>
+were first domesticated the Irish<br>
+hobbyhorse provided the foundation<br>
+bloodline for the world's Thoroughbred<br>
+racehorses and several other breeds DNA<br>
+origins studies prove that 68% of the<br>
+modern thoroughbred racehorse is<br>
+actually derived from the Irish hobby<br>
+horse it's closest genetic relative DNA<br>
+studies have also determined that the<br>
+speed gene came from the Irish hobby<br>
+horse which was an extremely fast horse<br>
+and not from Arabian stallions as is<br>
+often claimed the context here is that<br>
+the fastest horses on earth today all<br>
+get their genetics from Irish horses and<br>
+there has been a lot of misinformation<br>
+that it was Arabian horses or British<br>
+horses or different horses that<br>
+developed a thoroughbred the<br>
+thoroughbred racehorse is predominantly<br>
+Irish hobby horse with some modern<br>
+genetics from other areas officially the<br>
+Irish hobby horse is extinct however it<br>
+is possible to rebreathe them using the<br>
+existing genetics of the Irish draught<br>
+connemara ponies and other made of Irish<br>
+breeds Ireland has the best horse<br>
+breeders in the world who are more than<br>
+capable of this task and it would be<br>
+great to see the Irish hobby horse<br>
+revived horse racing is hugely popular<br>
+in Ireland and she has many recent<br>
+festivals it was an ancient Ireland the<br>
+horse race and Chariot Racing and shoe<br>
+jumpin were all first developed the<br>
+chariot plays a huge part in Irish<br>
+mythology gods goddesses and heroes all<br>
+had special horses and chariots this<br>
+transferred to the mythology of other<br>
+cultures particularly the myth of a God<br>
+or hero pulling the Sun or the moon<br>
+across the sky and a magical solar or<br>
+lunar chariot the myth of a solar or<br>
+lunar chariot the Sun of the Moon being<br>
+pulled across the sky in a chariot is<br>
+found all around the world<br>
+not myth originated in Incheon our white<br>
+horses play a particular importance in<br>
+Irish mythology and the mythology of the<br>
+wider world<br>
+in one famous Irish myth Nev took Oshin<br>
+on a white horse Cyrano the land of the<br>
+youth the land of promise or the<br>
+Promised Land<br>
+so in Irish mythology tyranny is the<br>
+promised land if we take a look at these<br>
+two images the bottom image is of an<br>
+Irish draught horse which is genetically<br>
+very very similar to an Irish hobby<br>
+horse the top image is of Nev who took<br>
+Oshin on a white horse journey knew the<br>
+Promised Land when you see a white horse<br>
+it usually symbolizes something special<br>
+in mythology not just in Ireland but<br>
+Iran the world the ancient Irish added a<br>
+horse hair to country despite what many<br>
+people think concrete was invented in<br>
+Ireland not room<br>
+Ireland's mysterious round towers are<br>
+built with concrete which includes<br>
+horsehair in the mortar this horsehair<br>
+can be carbon dated to prove the true<br>
+age of Ireland's round towers which are<br>
+so much older than people realize<br>
+speaking of high horses scientists and<br>
+academics often ridiculed mythologies<br>
+and religious traditions the world's<br>
+mythologies contain grains of truth<br>
+surrounded by a lot of BS a lot of<br>
+exaggeration but as the BS is the<br>
+fertilizer that keeps the grain of truth<br>
+alive and the ancients hid wisdom in<br>
+mythology and superstition to keep their<br>
+secrets alive mythology is not designed<br>
+to be taken literally it's designed to<br>
+educate entertain and keep secret<br>
+information alive Harlan has a deep<br>
+mythology that has been developed since<br>
+the most ancient of times with the<br>
+understanding that real events get<br>
+widely exaggerated<br>
+we can explore mythology and find rich<br>
+hidden wisdom it's the nature of the<br>
+human mind to distort delete and<br>
+exaggerate which is why the old stories<br>
+injurer<br>
+all around the world we find the great<br>
+flood myth legends of a great deluge are<br>
+found in virtually every tradition and<br>
+culture on earth this was a real event<br>
+which occurred eleven thousand six<br>
+hundred years ago which you will learn<br>
+about later<br>
+scientists and academics are from<br>
+ridicule mythology and dismissed as<br>
+rubbish superstition and pseudoscience<br>
+not realizing the greens of wisdom<br>
+stored within it it must be remembered<br>
+that what was once considered<br>
+pseudoscience often becomes fact the<br>
+facts of science keep on changing yet<br>
+the old story stayed the same and the<br>
+human mind is hard-wired for remembrance<br>
+stories not facts clearly we need both<br>
+actually just like to point out<br>
+something here if a religion doesn't<br>
+like what you're seeing they call it<br>
+blasphemy and if science doesn't like<br>
+what you're saying is called<br>
+pseudoscience the trick used by most<br>
+people if they don't like the message is<br>
+to shoot the messenger and leave on the<br>
+gibberish pseudoscience superstition<br>
+rubbish blasphemy heresy or any of the<br>
+above so just for the record we don't<br>
+ask anyone to believe a word we say and<br>
+it's actually very easy to spot a false<br>
+prophet they ask you to believe them<br>
+just like everyone on the planet we do<br>
+the best we can based on our current<br>
+level of ignorance we don't claim to<br>
+have all the answers we don't claim to<br>
+be right we present the information as<br>
+best it is and we ask you not to believe<br>
+us but to do your own second in ancient<br>
+Ireland science and spirituality work<br>
+together to understand the mysteries of<br>
+life and the universe this is called<br>
+philosophy which is the love of wisdom<br>
+and as the parent of both science and<br>
+spirituality two sides of the one coin<br>
+religion need science and science needs<br>
+religion both tell you that they're<br>
+right there is not a person on the world<br>
+who has all the answers beware those who<br>
+ask you to believe them<br>
+much better to think for yourself many<br>
+of the greatest scientists who have ever<br>
+walked the earth were very spiritual for<br>
+example Einstein famously said I just<br>
+want to know how God created the world I<br>
+just want to understand the mind of God<br>
+was another one of his quotes he also<br>
+said that if you want intelligent<br>
+children read them fairy tales and he<br>
+spoke at length about the importance of<br>
+the imagination<br>
+the to hit the danam were a supernatural<br>
+highly advanced race who according to<br>
+one legend arrived in Ireland in ships<br>
+from the sky they were also known as the<br>
+Sun people<br>
+the shining ones and the little people<br>
+Ireland's most famous heroes including<br>
+Lou Setanta who Colin and several others<br>
+were members of the demons the<br>
+throughout the diamond means tribe of<br>
+the goddess Tammy he was the mother<br>
+goddess or by their earlier name to thee<br>
+which means tribe of the gods<br>
+dhannu ammu is a mother goddess<br>
+associated with the land and the seas<br>
+similar goddesses are found all over the<br>
+world the demons have special advanced<br>
+knowledge science technology and<br>
+weaponry they fought many battles with<br>
+the giant from mauryans and later<br>
+invaders of Ireland in one legend the<br>
+Ganon king nuda lost a hand in battle<br>
+and was fitted with a silver robotic<br>
+hand which moved like a normal hand and<br>
+flesh even grew over indeed Allan's<br>
+intermarried with the giant form<br>
+Orient's and been stone circles fairy<br>
+forts and man's which are considered<br>
+sacred to this day in Ireland there is<br>
+also a lot of speculation that the<br>
+demons built Ireland's round tower as we<br>
+mentioned earlier those round towers<br>
+were built with mortar which contained<br>
+horsehair<br>
+by carbon-dating the horsehair the age<br>
+of the ramen Parrish would be<br>
+established once and for all some people<br>
+even think that Aaron's round towers<br>
+were built by the firm Orion Giants<br>
+nobody knows for sure how old Aaron's<br>
+round towers really are time will tell<br>
+who really built them in these two<br>
+images the top picture is a depiction of<br>
+the two hidden Danone the bottom image<br>
+is a snippet from the Hobbit movie that<br>
+the islands are similar to the elves in<br>
+The Hobbit and The Lord of the Rings<br>
+movies the de diamonds were considered<br>
+in Irish mythology as a divine mortal<br>
+race who bought advanced knowledge<br>
+skills music and poetry to the people<br>
+the Irish annals tell us that some of<br>
+the demons left Ireland during the Great<br>
+Flood and returned several years later<br>
+with the wisdom of the world having<br>
+learned in the northern islands while<br>
+the demon queen bomba survived the great<br>
+flood by standing on a hill near the<br>
+river shallow so Ireland has plenty of<br>
+Legends of life before the great deluge<br>
+during it and after the greatest day<br>
+tannin of all coholan received his<br>
+warrior training in the islands of<br>
+Scotland and the Irish and Scots go back<br>
+to the earliest of times the deed<br>
+Annan's were known as the wandering d<br>
+diamonds because they traveled the world<br>
+the Greek Pythagoras met the demons he<br>
+thought them godlike and begged them to<br>
+teach him their secrets Pythagoras was<br>
+considered one of the greatest minds of<br>
+all time and predated Socrates Plato and<br>
+Aristotle Pythagoras is considered one<br>
+of the greatest if not the greatest<br>
+mathematician of all time some legends<br>
+portrayed the diamonds as the fair and<br>
+peaceful little people who were around<br>
+three to five foot tall which give rise<br>
+to the elves ferry and leprechaun<br>
+legends nobody really knows what these<br>
+guys were some people think they were<br>
+angels others things were aliens others<br>
+think they were time travelers but the<br>
+most likely and logical explanation is<br>
+that they were highly educated<br>
+whatever they wear they were very very<br>
+special the legends associated with them<br>
+it's truly incredible<br>
+there are many tribes in Irish mythology<br>
+but only gonna focus on two here the<br>
+deed Annan's and a giant for mauryans<br>
+ireland is known around the world as the<br>
+land of giants for very good reason an<br>
+Irish giant a firm Orion was found in a<br>
+bargain candy action in the eighteen<br>
+seventies near the world-famous Giant's<br>
+Causeway this giant was 12 for 2 inches<br>
+tall with six toes on the right foot<br>
+this giant was exhibited in Dublin<br>
+Liverpool and Manchester at six pounds a<br>
+head before getting lost in carriage on<br>
+its way to London in 1876 a court case<br>
+was fired after the loss of the body<br>
+while the peculiar fine was also<br>
+reported in the press at the time there<br>
+are also Irish press records of other<br>
+similar finds while Ireland has been<br>
+known the world over as the land of<br>
+giants the firm ourian's were a race of<br>
+8 to 12 for Giants and the original<br>
+habitants of Ireland in one legend the<br>
+sea rose and drowned most of them just<br>
+like Plato's legend of Atlantis but some<br>
+survived on higher ground while<br>
+thoroughly escaped to Britain Greece and<br>
+the northern islands in Ireland there<br>
+are several on excavated sites which are<br>
+thought to contain the remains of giants<br>
+the irish giants who went to greece were<br>
+called the fur bugs which means the bag<br>
+man as they were enslaved by the greeks<br>
+and made to carry bags of construction<br>
+materials after 230 years of slavery<br>
+they left Greece Iran at the same time<br>
+that the Israelites are said to have<br>
+left Egypt and sailed in a great fleet<br>
+to Iberia which is Spain and then on to<br>
+Ireland United States President Abraham<br>
+Lincoln made reference to the Giants<br>
+whose bones fill the minds of America as<br>
+did several New York Times articles<br>
+giant bones are reported to have been<br>
+found in the mounds of the USA and there<br>
+are many many prayers cuttings to that<br>
+effect there are legends of a race of<br>
+red-haired Giants with two sets of teeth<br>
+and six fingers or toes from all around<br>
+the world the book of glendalough is<br>
+stored in Oxford England this precious<br>
+book lists the entire genealogy of the<br>
+Irish Giants going right back to the<br>
+biblical Noah who was the tenth from<br>
+Adam and Eve giantism is caused by the<br>
+AIP gene and the highest concentration<br>
+in the world of this so-called<br>
+giant gene is found in middle star for<br>
+one in a hundred and fifty people<br>
+carried this DNA so let's just digest<br>
+that the book of glendalough in oxford<br>
+england contains the entire genealogy of<br>
+the irish giants going right back to the<br>
+biblical Noah so in other words this<br>
+book has the names the husband's the<br>
+wives the children where they lived and<br>
+the details of all the Irish Giants<br>
+Giants were absolutely a real thing in<br>
+ancient art but there were not a hundred<br>
+foot tall as some legends that were into<br>
+12 foot tall all around the world we<br>
+find legends of giants that are very<br>
+very similar what do you think is more<br>
+likely the people who a couple of foot<br>
+taller than they are today or there are<br>
+hundreds of different independent tribes<br>
+all around the world made up almost the<br>
+same laches giantism and dwarfism are<br>
+nothing more than expressions our<br>
+genetic past in middle star the highest<br>
+concentration of the Giants gene<br>
+anywhere in the world is found were one<br>
+in 150 people carry it and so far it has<br>
+been traced back to ear team families<br>
+now interestingly knit our meat was an<br>
+ancestor of both the firm Orion Giants<br>
+and the D Donna's but MIT was also the<br>
+oldest Egyptian god and was said to have<br>
+being the supreme creator of the entire<br>
+universe and all it contains she was<br>
+also<br>
+to be the mother of rah the Sun net was<br>
+the Egyptian goddess of wisdom and she's<br>
+also known as Sophia philosophy is the<br>
+love of wisdom the word philosophy<br>
+literally means the love of Sofia the<br>
+love of wisdom it is the parent of both<br>
+science and spirituality philosophy is<br>
+the mother of both science and religion<br>
+the ancient Irish with the world's first<br>
+philosophers they honored the<br>
+awesomeness of creation and had a<br>
+scientific religion they worshipped<br>
+nature and honored her great emblems the<br>
+moon the Sun and the earth incidentally<br>
+the current Irish flag is green white<br>
+and orange it's called the tricolour but<br>
+that's not the original Irish flag the<br>
+tricolour was changed to green white and<br>
+orange in an attempt to make peace<br>
+between the green and the orange the<br>
+green tradition and the orange tradition<br>
+in Ireland the native green and the<br>
+orange Sadler's the original flag was<br>
+actually green white and gold and it's<br>
+thought that gold was for the Sun white<br>
+was for the moon and green was for Earth<br>
+they understood the utter dependence on<br>
+the life-giving rays and light from the<br>
+Sun and watched it every move they also<br>
+heard the five elements fire water earth<br>
+air and ether spirit they respected<br>
+wisdom honor and mastery above all else<br>
+they understood that man has built a<br>
+lower animal mind and a higher angel<br>
+mind or a soul and that wisdom came from<br>
+mastering the animal within this is<br>
+basic biology all humans have a<br>
+reptilian mind as does every other<br>
+mammal<br>
+that's what keeps your heart beating an<br>
+uncivilized human is like an animal a<br>
+highly civilized human is like an engine<br>
+and the word angel simply means<br>
+messenger the injured Irish were the<br>
+world's first scientists and saw no<br>
+difference between science and<br>
+spirituality they believed that the soul<br>
+was immortal a spark of the divine fire<br>
+the words<br>
+and the Latin word sol for son and the<br>
+Spanish word solver son comes from the<br>
+Irish word solace which means light<br>
+wisdom is in the light or enlightenment<br>
+disorder state of total reverence and<br>
+understanding of things they did not<br>
+want to believe they wanted to<br>
+understand in other traditions this was<br>
+called a state of gnosis or knowing<br>
+there is a world of difference between<br>
+believing and understanding the smaller<br>
+your mind the more you believe look at a<br>
+young child a child at 3 or 4 years of<br>
+age believes everything but the more<br>
+mature and develop we get the more we<br>
+want to understand the root of so much<br>
+human suffering is the need to be right<br>
+based on what we believe there is a big<br>
+difference between belief and faith<br>
+faith is a deep inner knowing belief as<br>
+a prison the root of so much human<br>
+suffering is the need to be right the<br>
+numbers 3 and 9 were especially sacred<br>
+numbers in ancient Ireland they also<br>
+understood that nature was two-sided<br>
+both life and death creation and<br>
+destruction positive and negative they<br>
+understood that everything has both<br>
+positive and negatives and that the<br>
+entire universe was made out of parish<br>
+of opposites the entire universe is made<br>
+out of energy energy is 50 percent<br>
+positive 50 percent negative why would<br>
+you be any different<br>
+the cure for negative thinking is<br>
+positive thinking<br>
+the cure for positive thinking is<br>
+negative thinking when you add positive<br>
+and negative thinking together you get<br>
+power thinking wisdom is seeing the two<br>
+sides of the coin the opposite of wisdom<br>
+is ignorance ignorance is the true enemy<br>
+to human development wisdom is in the<br>
+light and ignorance is in the darkness<br>
+however both are essential one does not<br>
+work without the other we are all born<br>
+helpless and ignorant<br>
+job is to die helpful and wise we all<br>
+have to climb out of the slime of<br>
+ignorance the Golden Age of man will be<br>
+an edge of wisdom<br>
+the destruction of the Great Library of<br>
+Alexandria was one of the greatest<br>
+crimes ever committed against humanity<br>
+the library was attacked and damaged<br>
+several times before its final<br>
+destruction most likely in 415 AD by the<br>
+Romans close to 1 million precious<br>
+scrolls were destroyed setting back<br>
+humanity thousands of years hypothec<br>
+Alexandria was a leading scientist<br>
+astronomer mathematician and curator of<br>
+the great library at a time when women<br>
+were considered the property of man and<br>
+second-class citizens<br>
+she was skinned alive and murdered by a<br>
+Christian mob led by a lector named<br>
+Peter elector is somebody who reads the<br>
+Bible in the church<br>
+the mob were followers of Cyril the<br>
+Bishop of Alexandria who according to<br>
+renowned astronomer Carl Sagan despised<br>
+Hypatia because she was a woman who<br>
+symbolized learning and science which<br>
+were largely identified by the Roman<br>
+Church as paganism high-path a-i was all<br>
+but forgotten by history room declared<br>
+Cyril ascent many scholars view<br>
+hypothesis murder as the birth of an age<br>
+of ignorance where people were not<br>
+allowed to think for themselves<br>
+Ireland's ancient libraries monasteries<br>
+and culture have been desecrated over<br>
+the centuries millions of books were<br>
+destroyed by successive English invaders<br>
+the destruction of libraries temples and<br>
+schools has occurred throughout history<br>
+all over the world thousands of scholars<br>
+scientists and free thinkers have been<br>
+persecuted burned at the stake tortured<br>
+labeled as heretics witches antichrists<br>
+pseudo-scientists for even daring to<br>
+think and speak for themselves<br>
+since the beginning of time empires that<br>
+have preached love peace and prosperity<br>
+have practiced war and deception their<br>
+actions speak a lot louder than words if<br>
+you want to know who controls you it's<br>
+who you can't question or criticize and<br>
+it's very easy to spot a false prophet<br>
+they ask you to believe them in such<br>
+matters the Irish expression wise up<br>
+seems appropriate wise up means grow up<br>
+and do your own thing<br>
+the plague of Justinian started in the<br>
+eastern part of the Roman Empire in 541<br>
+ad shortly after a cosmic event in 536<br>
+ad which caused global crop failures we<br>
+will cover that later the plague lasted<br>
+for two centuries decimating Europe and<br>
+the wider world as many as 50 million<br>
+people are estimated to have died<br>
+between a quarter and a half of the<br>
+entire world's population at the time<br>
+the plagues impact was similar to that<br>
+of the Black Death that devastated<br>
+Europe and the Middle Ages both plagues<br>
+were caused by a bacteria called<br>
+Yersinia pestis the same bacteria is<br>
+suspected for the Stone Age population<br>
+the plan which was a rapid collapse in<br>
+the populations of Europe and the Asia<br>
+between five and six thousand years ago<br>
+the population of mohel tiny Leitrim was<br>
+devastated by the Justinian plague and<br>
+this highly infectious plague would have<br>
+quickly spread all across Ireland<br>
+devastating the population there were<br>
+also huge crop failures at the time in<br>
+Ireland and all across the world recent<br>
+research has proven that Ireland's<br>
+population was in serious decline for<br>
+300 years before the Vikings arrived<br>
+around 800 AD in line with the Justinian<br>
+plague outbreak and crop failures it was<br>
+during this time that Ireland was said<br>
+to have had a golden age after<br>
+converting to Christianity without a<br>
+drop of blood having ever been spilt<br>
+apparently Ireland's ramped Irish were<br>
+also built at this time both dubious<br>
+claims for a country ravished by plague<br>
+and famine the facts are a lot more<br>
+sinister<br>
+in 1155 ad poop a during the 4th an<br>
+Englishman and head of the Roman<br>
+Catholic Church authorized the English<br>
+invasion of Ireland the papal bull call<br>
+inaudible tur urged henry ii to invade<br>
+Ireland to bring the independent Irish<br>
+Church and the people of the island<br>
+under the control of the Vatican and for<br>
+the Irish to pay the Peters pants tax to<br>
+Rome 18 success of kings of england from<br>
+henry ii until henry the es used the<br>
+title Lord of Ireland and claimed that<br>
+it had been granted by Pope Adrian the<br>
+fourth successor Pope Alexander the<br>
+third for centuries attempts at sourcing<br>
+the original order filter document have<br>
+proved futile and the Vatican says the<br>
+original Pope's ball is no longer in<br>
+existence claims made across Europe that<br>
+the Irish had lost their way was a<br>
+deception to cover a land grab involving<br>
+Roman Pope's English kings and bleeding<br>
+Irish hearts the British proceeded to<br>
+rape murder and pillage the way across<br>
+Ireland's just as they did in India<br>
+America and all around the world the<br>
+original meaning of the Ulster phrase no<br>
+surrender was actually no surrender to<br>
+Roman during the great hunger of 1845 to<br>
+1849<br>
+over 1 million Irish starved to death<br>
+and another million emigrated the<br>
+population of Ireland was completely<br>
+decimated while it's often called the<br>
+famine a more accurate term is<br>
+starvation the British exported millions<br>
+of tons of grain from Ireland as they<br>
+watched the Irish starve in what can<br>
+only be described as the greatest act of<br>
+genocide in the 19th century over the<br>
+centuries the Vatican authorized several<br>
+so-called holy wars including the<br>
+Spanish colonization of the Americas<br>
+these guys were called the conquistadors<br>
+this act of genocide had an estimated 20<br>
+million deaths three times the number of<br>
+deaths associated with the Nazi<br>
+Holocaust in more recent times the<br>
+Vatican has been rocked by thousands of<br>
+horrific sex abuse scandals in 2017 a<br>
+mass grave containing the remains of an<br>
+estimated 800 children was found in a<br>
+Catholic care<br>
+in tanta galway ireland in 2019 a group<br>
+representing Irish sex abuse victims<br>
+reported the Vatican and the British to<br>
+the International Criminal Court for<br>
+historical crimes against humanity<br>
+sandé the fame<br>
+[Music]<br>
+long time<br>
+yes<br>
+woman the team there was war<br>
+death plundering and bleach by children<br>
+starved I'm on some very handsy their<br>
+way<br>
+[Music]<br>
+cries they shook the ferry<br>
+heavens my for Greenfield ran red with<br>
+their blood<br>
+Sanchi<br>
+you<br>
+astronomy was force developed in Ireland<br>
+and they mapped out the Stars thousands<br>
+of years the ancient Irish names the<br>
+Milky Way which is derived from the<br>
+Irish Palace tinabeth pina<br>
+which means where of the white cow the<br>
+early Irish carved images of an ancient<br>
+solar eclipse into giant stones at last<br>
+true in County Meath over five thousand<br>
+years ago on the 30th of November<br>
+treachery 400 BC to be exact this is the<br>
+oldest known recorded solar eclipse in<br>
+history predating the next closest<br>
+recording by almost two thousand years<br>
+this level of mathematical knowledge is<br>
+truly astonishing Irish Stone Age<br>
+monuments are aligned with movements at<br>
+the Sun Moon stars and the four cardinal<br>
+points many minds have cruciform<br>
+chambers aligned to the Sun cross which<br>
+is the two salsas and the two equinoxes<br>
+Ireland's museums have many example of<br>
+gold Sun discs also called Sun crosses<br>
+or solar crosses dating back thousands<br>
+of years similar some discs are found in<br>
+South America so if we just take a look<br>
+here at the top of which is the Milky<br>
+Way the way of the white cow and the<br>
+ancients believed that to be heavenly<br>
+reflection of the river bowing as above<br>
+so below the bottom images is Irish Sun<br>
+or solar crosses these represented the<br>
+Sun hence the gold and the four cardinal<br>
+points of the Sun so the when the Sun is<br>
+at the highest in the sky in the summer<br>
+when the equinoxes in the autumn equinox<br>
+means equal day and night when the Sun<br>
+is at the lowest point in the winter the<br>
+24th of December and when the Sun is at<br>
+the equinox in the spring so that's the<br>
+Sun cross cross at the Sun that symbol<br>
+has found all over the world astrology<br>
+the interpretation of the heavens<br>
+started in Ireland and like many things<br>
+was mutilated the further it got from<br>
+its source<br>
+the Egyptians Babylonians Persians<br>
+Greeks and Romans were all pagan<br>
+astrologers who bears the related<br>
+and mythology's on the movements of the<br>
+heavens it's quite ironic that the Roman<br>
+Empire martyred millions of pagans after<br>
+being a pagan city for 900 years the<br>
+25th of December was celebrated in pagan<br>
+Rome as the feast of the unconquerable<br>
+Sun for hundreds of years the Romans<br>
+also worships Saturn as the king of the<br>
+gods Saturn was known as the binder or<br>
+the own binder the lord of the realms or<br>
+the Lord of the Rings Astro theology<br>
+which is the personification of the<br>
+heavens plays a huge part in most<br>
+mythologies for example Helios was the<br>
+Greek Sun God who carried the Sun across<br>
+the sky every day in a solar chariot in<br>
+Irish mythology the Sun was said to be<br>
+the shining face of Lu the Irish Sun God<br>
+knew NASA which is the Irish month of<br>
+August and the Harvest Festival is<br>
+associated with lu lu nasa means lose<br>
+assembly and lunes occurs nine months<br>
+after the winter solstice and as we<br>
+discussed earlier on nine-month<br>
+gestation period is how long a humanist<br>
+pregnant I'll own a cow is pregnant<br>
+alone most animals is pregnant and how<br>
+long it takes between fertilizing the<br>
+ground with seeds to a fully mature crop<br>
+the ancients somehow knew that the earth<br>
+and Saric of the Sun and the Sun circled<br>
+the central Sun which the ancients<br>
+called Sophia the old Seon re the most<br>
+high and several Miller names they<br>
+believe that the central Sun was the<br>
+seat of the Most High the source of all<br>
+life all light and all wisdom it's only<br>
+in recent decades that science has<br>
+discovered a central zone which is<br>
+called a black hole a black hole sucks<br>
+in light gases planets stars and star<br>
+dust and shoots out light water elements<br>
+information and all the building<br>
+I needed to create new life light<br>
+carries information all across the<br>
+galaxy the earth and everything on earth<br>
+including you is Mira to Stardust<br>
+silence who spent decades building a<br>
+house of cards that's about to come<br>
+crashing down it's not a big bang it's a<br>
+big bridge the great Universal Mind here<br>
+we see the central Sun the ancients call<br>
+this Sofia which means wisdom<br>
+now let's see can we find our own song<br>
+replies<br>
+here we can see the planets circling the<br>
+Sun<br>
+and the Sun circling the central sir<br>
+the intrud Irish developed the master in<br>
+the apprentice system to develop crafts<br>
+and innovation in order to graduate one<br>
+had to prove that they had surpassed<br>
+their master in learning by creating<br>
+something that their master couldn't<br>
+this creation was called a masterpiece<br>
+this system remains the most effective<br>
+form of Education ever discovered the<br>
+fastest way to get what you want is to<br>
+learn from someone who knows what you<br>
+need to know<br>
+rather than trial and error from the<br>
+most ancient times Ireland had a mariner<br>
+class as scholars and poets the Irish<br>
+Bartok schools were ancient<br>
+pre-christian centers of learning from<br>
+the earliest times Ireland's scholars<br>
+had a reputation as been the best in the<br>
+world<br>
+Ireland led the intellectual world and<br>
+the higher arts of civilization great<br>
+leaders flocked to Ireland's shores for<br>
+light and learning the injured Irish had<br>
+a network of druids bards and poets to<br>
+both educate and entertain the people<br>
+because most people couldn't read or<br>
+write the spoken word was the main form<br>
+of Education<br>
+there are many unpublished poems and<br>
+stories from ancient Ireland that have<br>
+yet to be translated this project a Wits<br>
+its scala people have searched for<br>
+Atlantis for thousands of years Atlantis<br>
+Ireland and many of our treasures are<br>
+stored in Ireland's universities and<br>
+libraries the Oliveira was in charge of<br>
+educating the people the Oliveira was<br>
+equal in status to the High King of<br>
+Ireland it was the joint highest<br>
+position in the land so that will show<br>
+you how much education was valued in<br>
+ancient Ireland and the fine for killing<br>
+an olaf was equal to define for killing<br>
+a king the Oliveira was the head of<br>
+education in Ireland in ancient times<br>
+and was equal if not even more<br>
+prestigious a position as the High King<br>
+of Ireland the ancient Irish developed<br>
+bran lost thousands of years before the<br>
+rest of the world any form of legal<br>
+system this law of the land was enforced<br>
+by the people themselves without needing<br>
+a police force interestingly the Irish<br>
+police force today don't carry guns and<br>
+are called legardie Chacon<br>
+which means guardians of the peace<br>
+ancient Ireland had wandering referees<br>
+called the brats who adjudicated on<br>
+disputes the brand laws was a system<br>
+based on the Equality of all men and<br>
+women women were entitled to enter all<br>
+the same professions as man and there<br>
+was equal rights between the genders<br>
+nobody was above the law not even a king<br>
+interestingly the ancient Irish even had<br>
+a form of divorce where you could get<br>
+divorced within the first 12 months of<br>
+marriage but not a day later this legal<br>
+system demonstrates a society which can<br>
+be seen as deeply humane and highly<br>
+cultured in fact Ireland's very unique<br>
+an advanced system of law has only one<br>
+comparison anywhere else on earth in its<br>
+complexity and its humanity the hindu<br>
+sanskrit and there is a lot of<br>
+connection between the ancient Irish and<br>
+the Hindus going back to the very<br>
+earliest of times<br>
+the brand laws are very different to<br>
+other legal systems across time as the<br>
+emphasis is on fines rather than violent<br>
+or capital punishment the law was based<br>
+on fines paid by the guilty under family<br>
+tribe to the victim the wider family was<br>
+responsible for their family members<br>
+behaviors which kept people in line the<br>
+fine was called the honor price an honor<br>
+was highly treasured in the Atlanta<br>
+sound new laws were agreed and decreed<br>
+from the Hill of Tara for thousands of<br>
+years making it the world's first and<br>
+the father of all parliaments top images<br>
+is of some wise people agreeing on the<br>
+wisest course of action the bottom image<br>
+is some written brand laws<br>
+nobody knows from the brand laws for<br>
+started they go back thousands of years<br>
+and every time a brand made a judgment<br>
+it created a precedent the brand law has<br>
+died out after the English invasion of<br>
+Ireland and over the best part of a<br>
+thousand years Irish culture was stamped<br>
+out although records of the brand laws<br>
+still survive and there is a lot of<br>
+wisdom in them when described in<br>
+Atlantis Plato described how the temple<br>
+flashed with the red light of orichalcum<br>
+this matter was red brass and a lie of<br>
+copper tin and zinc it is an extremely<br>
+tough matter that can handle heavy loads<br>
+is rust resistant and is widely used<br>
+today from modern plumbing it's commonly<br>
+called Kaaba orichalcos is the modern<br>
+greek word for brass red brass is also<br>
+known as gunmetal as it was used to make<br>
+guns in recent times the use of brass<br>
+has mentioned several times in Irish<br>
+mythology so the engine Irish were<br>
+absolute masters of metalwork and metal<br>
+alloys the Roth Island mines and kindly<br>
+carry was the first major copper mine in<br>
+northwestern Europe shamans made from<br>
+cattle bones and hammers made from stone<br>
+cobbles have been found at the site<br>
+mines in the region produces much as 370<br>
+tonnes of copper during the Bronze Age<br>
+the early Irish also founded mines in<br>
+the<br>
+region between france and spain which<br>
+was one of its earliest Irish posts from<br>
+quite an early age one other point the<br>
+ancient Irish used a form of heating<br>
+stones to break them so they would heat<br>
+up stones smash them with hammers and<br>
+that's how they broke true to the matter<br>
+golden ULA's were worn by royalty and<br>
+people of high social stature of the<br>
+more than 100 golden ulla necklace is<br>
+found all across Europe<br>
+Eenie are from Ireland and more Bronze<br>
+Age gold hoards have been discovered in<br>
+Ireland anywhere else in Europe the<br>
+craftsmanship of the r da chalice Tara<br>
+brooch and denier every flash fluke are<br>
+unparalleled anywhere in the world a<br>
+copper axe found near Waterford Ireland<br>
+is almost identical to one found near<br>
+Laporte in India and the USA and the<br>
+Incheon Irish of knowledge of metal<br>
+allies including bronze brass electrum<br>
+and iron<br>
+long before the rest of the world iron<br>
+slag the byproduct of forging iron has<br>
+been found at the ancient Hill of Tara<br>
+and as we mentioned earlier Tara has<br>
+never been excavated apart from two<br>
+smaller man's out of electrum is the<br>
+ally of gold and silver and that's what<br>
+the ancients used on the top of many of<br>
+the permits not gold electron-electron<br>
+represented the song and the moon gold<br>
+and silver gold for some silver from<br>
+moon electrum was built and if we take a<br>
+look at these images the top on is a<br>
+golden ola the bottom one is the RDoc<br>
+chalice this is one of the most<br>
+spectacular pieces of metalwork anyone<br>
+earth we suspect this is a lot older<br>
+than people realize and we suspect that<br>
+the names of the Apostles which are<br>
+inscribed around here was added at a<br>
+later date although we offer no proof to<br>
+that theory now if you look at the<br>
+intricacy of the gold work here it is<br>
+truly sensational this was all done by<br>
+hand what we can all agree on is the<br>
+intricacy of the metalwork here is<br>
+absolutely sensational it is stunning<br>
+nowhere else in the world is this<br>
+quality of metal oxide<br>
+you<br>
+it takes many thousands of years for<br>
+culture to develop the arts the ultimate<br>
+sign of an advanced society mastery the<br>
+mastery of one's craft was highly valued<br>
+in ancient Ireland those who were<br>
+masters were highly respected and there<br>
+were several local and national<br>
+competitions to develop skills and<br>
+promote the arts the ancient Alton games<br>
+had competitions for every in all<br>
+classes of art and crafts including<br>
+weaving bribery spinning and dyeing of<br>
+cloth cookery goldsmithing jewelry<br>
+making carving drawing painting poetry<br>
+art etc the winning of a national title<br>
+called an hour Ireland was a huge honor<br>
+and this tradition continues today in<br>
+sports and music the spiral carob stones<br>
+a new range is one of the oldest pieces<br>
+of art on earth Ireland has thousands of<br>
+Stone Age carvings so you the top<br>
+picture there is one of the spiral<br>
+carved stones from newgrange<br>
+flax linen Weavin and clear pottery were<br>
+developed in ireland from ancient times<br>
+and if you look at the bottom image<br>
+that's just an example of some weaved<br>
+baskets and they ultimately the skill of<br>
+weave and became the skill of boot<br>
+building over time most of the old Irish<br>
+gods or gods of the Arts<br>
+for example the pagan goddess Brigid who<br>
+was worshipped all over in Europe by the<br>
+Irish descendants the castes was known<br>
+as the patroness of poetry the poet and<br>
+bard were highly respected in Ireland<br>
+story Tallinn was a huge part of culture<br>
+and was how historical events were<br>
+recorded Brigid was also known in<br>
+ancient Ireland as the exalted one<br>
+the paltin games to establish circa 1896<br>
+BC over 1,000 years before the Greek<br>
+Olympic Games which were first held in<br>
+776 BC the games were named after Tata<br>
+who is one of the most learned and<br>
+accomplished ladies in all of Europe and<br>
+lasted for almost 3,000 years until 11<br>
+69 AD the time of the British Invasion<br>
+the event became famous all over Europe<br>
+and inspired the foundation of the Greek<br>
+Olympic Games the games consisted of<br>
+every test of physical endurance and<br>
+skill imaginable horse and chariot race<br>
+athletics field sports including hurling<br>
+and football combat arts crafts music<br>
+poetry and intellectual competitions a<br>
+universal truce was declared with the<br>
+charts and games<br>
+no one could be arrested for any<br>
+previous offences all feuds and quarrels<br>
+were paused for the games<br>
+fighting was strictly forbidden and<br>
+severely dealt with those also a great<br>
+fair a marketplace for clothes food<br>
+produce livestock household goods and<br>
+weaponry there are records of Greek<br>
+merchants having attended this fair the<br>
+ancient Irish played court football<br>
+which had two main versions field and<br>
+cross country the field game became the<br>
+modern Gaelic football while the epic<br>
+cross-country version became rugby code<br>
+which was played in Ireland for over<br>
+1,000 years before rugby was apparently<br>
+invented involved wrestling your<br>
+opponent to the ground stripping him of<br>
+possession kicking passing running with<br>
+the ball in your hand passing the ball<br>
+backwards and ultimately getting the<br>
+ball into the opponent's territory all<br>
+branches of the Gaelic race played card<br>
+including the Scotch the Welsh for it<br>
+was called can happen<br>
+the cornwall english where it was called<br>
+harming and the French Kells<br>
+Dublin University Football Club which is<br>
+today at Trinity College is the oldest<br>
+documented Rugby Club on earth the<br>
+ancient Irish used a bull scrotum<br>
+stuffed with straw and hay which was<br>
+stitched up and used as a football for<br>
+the record we are not saying that Rugby<br>
+University in England<br>
+or any of the English universities or<br>
+the English people for that matter<br>
+haven't done an amazing job and<br>
+spreading the game of rugby all around<br>
+the world<br>
+and there is no doubt that they give the<br>
+game it's modern year however Niemann<br>
+something is very different to inventing<br>
+something in ancient Ireland the modern<br>
+day rugby was called rough-and-tumble<br>
+the Irish invented rugby just as they<br>
+invented Gaelic football hurling drafts<br>
+handball and several other games but of<br>
+all of Ireland's sports hurling is it<br>
+smooths the ancient of all and is the<br>
+fastest ball game on earth the peaceful<br>
+warrior sport the ancient Irish invented<br>
+sport to channel aggression sport music<br>
+and poetry are among the best way is<br>
+known to channel aggression we will now<br>
+take a look at three different sports we<br>
+will take a quick look at rugby Gaelic<br>
+football and hurling you will notice how<br>
+similar rugby and Gaelic football are<br>
+both have 15 aside both have almost<br>
+identical posts and both are versions of<br>
+football that uses hands and feet and<br>
+you will also understand why Harlan as<br>
+Ireland's Warriors for its most sacred<br>
+three meters short presenter first<br>
+trainer okay<br>
+an appropriate the score<br>
+smiles aplenty okarin O'Driscoll no damn<br>
+proud of what they achieve today<br>
+France will continue<br>
+[Applause]<br>
+[Music]<br>
+this is the one with such a<br>
+comprehensive victory okay for<br>
+children's with the intercept at the end<br>
+but a fitting finish really to a<br>
+fantastic Irish display and foremost a<br>
+birthday present<br>
+[Applause]<br>
+I mean I suppose been very proud to be<br>
+an Irishman on my life but should be<br>
+Irish today I don't have ever been as<br>
+proud just to be Irish on a day like<br>
+today I mean for everybody involved in<br>
+this whole occasion from everybody<br>
+involved the GAA to the RFU but I think<br>
+just what a fantastic and momentum<br>
+through men against him it releases<br>
+anthemic on how they could do it a goal<br>
+like the one he got two years ago<br>
+against the same opposition<br>
+breezy now this is insight Rose McGrane<br>
+it comes back nice<br>
+it brings the armored funds to life<br>
+they're back in it only a point<br>
+separating the teams 19 minutes into the<br>
+second half a vital break watches<br>
+makanda was on hand taking a little past<br>
+there and crushing it past Declan<br>
+O'Keefe fantastic<br>
+it's anybody's box again<br>
+looking for the equalizer when they get<br>
+it to her own and talk more it comes out<br>
+it's a good one on the top of the bar of<br>
+the team<br>
+[Applause]<br>
+the O'Rourke family very well<br>
+represented in this tunnel<br>
+dropped in neatly here once again to<br>
+Steven<br>
+since third point more significantly<br>
+[Applause]<br>
+to Mosul shaved heating it in and good<br>
+defensive play by ARMA it's out to<br>
+pyramid Guinea the captain<br>
+[Applause]<br>
+here in the guinea the captain of the<br>
+first ever alarm our team to win some<br>
+unwanted keyring beginning and a<br>
+delightful day<br>
+look at that see just quite amazing<br>
+here comes Clem Smith Kieran Carey<br>
+leaving it there for James Morland up<br>
+towards his brother Ali four to five<br>
+points in the first half<br>
+[Applause]<br>
+a fantastic score<br>
+when he comes out with us hit him with<br>
+it soldier<br>
+properly you know you'd have said name<br>
+to momentum then Tara steady the chef<br>
+got a couple of fights up and she fights<br>
+off an indigo like every part is huge at<br>
+this stage it beautifully<br>
+flights it forward here<br>
+[Applause]<br>
+the streams and Caracalla shockwave<br>
+compositor he really had not you know he<br>
+was right not to go for a shot because<br>
+he were to give him a free out of a<br>
+centered way<br>
+[Music]<br>
+[Applause]<br>
+[Music]<br>
+since you're caught early when you're<br>
+young and play an imaginative games with<br>
+your friends the game always finished<br>
+off with winning the cop and that was<br>
+the Lima character cop I was lucky<br>
+enough as we want to couple them a lot<br>
+of great players didn't win remember<br>
+passing the cop under on the way out<br>
+onto the page and taking a quick glance<br>
+added and known that maybe in 70 minutes<br>
+time this could be or your your passport<br>
+immortality the day you die it's it's<br>
+gonna stick in your mind and it just<br>
+said never leave here it's like all your<br>
+verities of coma wants one of the great<br>
+days of nice to us see what it means to<br>
+people that really still lives with you<br>
+and will probably see the child really<br>
+every holy man is gonna see that cop to<br>
+touch the holy grail once is enough for<br>
+me I'm happy and content with it<br>
+you just get this feeling and sage at us<br>
+this is it I'm alive I'm living like I'm<br>
+lost my life won't get any better than<br>
+this moment this is the the pinnacle of<br>
+my life<br>
+make Irish music dancing and poetry has<br>
+been part of Ireland since the earliest<br>
+of times or people's love of music and<br>
+poetry is revealed by the harps<br>
+prominence as a national icon the<br>
+goddess era after whom Ireland is named<br>
+is often depicted with harp as are many<br>
+of Ireland's kiemce the logical figures<br>
+this top image is a depiction of erhu<br>
+playing an entire shop the harpist<br>
+official symbol of Ireland and was<br>
+revered from the earliest of times the<br>
+harp was invented in Ireland as were<br>
+several other musical instruments<br>
+legends of the harp and the magic of his<br>
+music have been told in Ireland's<br>
+legends for thousands of years the music<br>
+of the harp and whistles was so<br>
+enchanting that unforced hearing if many<br>
+of the European Celts believed the music<br>
+came from the other world as they had<br>
+never heard anything like it before<br>
+most have probably never even heard<br>
+music before the early Irish were the<br>
+only people who had the delicate skills<br>
+to mould the timbre and Ally the metals<br>
+in order to create sophisticated musical<br>
+instruments and would have used the<br>
+enchanting sounds of music to calm<br>
+restless natives whenever they traveled<br>
+in more recent times Riverdance and the<br>
+lord of the dance was a global success<br>
+which left audiences spellbound such was<br>
+its uniqueness this brings us towards<br>
+the end of part 1 atlantis ireland and i<br>
+think the most appropriate thing we can<br>
+do is spend a moment to sample some<br>
+irish music before we move on to part 2<br>
+the city of atlantis<br>
+[Music]<br>
+silver ring nice thing they know I'll<br>
+call the freedom and their breath sob I<br>
+can't against the sky<br>
+we're twisted rocks run into the sea<br>
+living on your western shore so he'll<br>
+summer sunset<br>
+ask for more I step I see<br>
+talking of a day with drear friends who<br>
+try to make you stay<br>
+telling jokes and news singing songs to<br>
+pass the night oh brain wash of always<br>
+something like silver dancing darling<br>
+and son living on your westrom sure<br>
+summer sounds it lasts for more drinking<br>
+all day<br>
+no those were feathers dolls do you play<br>
+someone touch the Bible he played a<br>
+river which seemed so wrong<br>
+[Music]<br>
+and we are don't cry<br>
+[Music]<br>
+they dressed and turn on then your ever<br>
+sky living on your western shore the<br>
+summer sunset ask for more I step I see<br>
+[Music]<br>
+so part two the city of Atlantis this<br>
+image is an artist's impression of the<br>
+ancient city of Atlantis based on<br>
+Plato's writing the main things of a<br>
+Plato's writing is three concentric<br>
+circles of water and land and the city<br>
+of Atlantis was said to be huge twenty<br>
+thirty kilometers wide so a huge huge<br>
+city there are many of course<br>
+iris fights from the city of Atlantis<br>
+and if the city of Atlantis was in<br>
+Ireland then it was in the wine body<br>
+which was the most likely location<br>
+that's the location of Newgrange which<br>
+is the circular tank will appear to<br>
+describe and there are hundreds of<br>
+circular structures in the region<br>
+probably thousands actually the Hill of<br>
+Tara which was the site of the hiking of<br>
+Ireland is also a possibility and yet<br>
+another possibility is rath Croghan and<br>
+County Roscommon which is pictured here<br>
+in the top image this was the ancient<br>
+royal site and fort of Queen May of<br>
+Ireland's warrior queen and is an area<br>
+surrounded by nature there are several<br>
+other possible locations for the city in<br>
+Ireland including Cork including the<br>
+dark including Galway there are many<br>
+many possible locations but we don't<br>
+think the city of Atlantis the player<br>
+described was in Ireland let's use an<br>
+analogy today there are 36 million Irish<br>
+Americans that's six times the<br>
+population of Ireland America's great<br>
+cities have millions of Irish residents<br>
+and are much bigger than Irish cities<br>
+for example the city of Boston has the<br>
+highest percentage of Irish Americans of<br>
+any American city Boston is an Irish<br>
+city but it's not in Ireland and America<br>
+is today<br>
+what Africa was in the past the city<br>
+that Plato described at elephants ivory<br>
+tusks and a huge population and massive<br>
+quantities of gold there is only one<br>
+place on earth that matches that<br>
+description Africa atlas who was the<br>
+Greek bearer of the heavens was a key<br>
+figure in Greek mythology<br>
+many things were named after atlas<br>
+including the Atlantic Ocean which means<br>
+atlas see the island of Atlantis which<br>
+means atlases Island<br>
+Atlas Mountains in North East Africa the<br>
+atlanteans which means atlases people<br>
+and the Atlantis which means atlases<br>
+descendants Greek mythology tells us<br>
+that Atlas was the first king of the<br>
+island of Atlantis and it also tells us<br>
+that Atlas was the first king of<br>
+Mauritania in Africa in most versions of<br>
+Greek mythology Atlas was the son of the<br>
+Titan impetus however there are<br>
+discrepancies Plato wrote that Atlas was<br>
+the son of Poseidon who is the Greek god<br>
+of the sea and a mortal woman named<br>
+leader the leader works about you<br>
+serious and odorous tell us that atlases<br>
+father was actually Uranus who was the<br>
+sky God and his mother was Gaia who is<br>
+Mother Earth and that his grandfather<br>
+was ilium king of Phoenicia helium is<br>
+derived from the Hebrew word a Leon mean<br>
+in the Supreme God L or the Most High<br>
+Venetia is just another name for Ireland<br>
+the Phoenician Island the advanced Irish<br>
+people became the gods in the mythology<br>
+of the Greeks Egyptians Babylonians are<br>
+several other races Zeus the king of the<br>
+Greek gods and Maya who was a daughter<br>
+of Atlas had a child called Hermes the<br>
+Greek messenger God who was an extremely<br>
+important figure in Greek mythology<br>
+Hermes was also referred to as an<br>
+Atlantis or an Atlantean Jude had been a<br>
+descendant of Atlas and therefore<br>
+Atlantis in the mythology of ancient<br>
+Greece<br>
+Cairns were associated with Hermes<br>
+Hermes was the equivalent of the Roman<br>
+god mercury and the Egyptian god Thoth<br>
+one of the founders of the Egyptian<br>
+civilization and the Egyptian god of<br>
+wisdom writing magic and the moon the<br>
+mystical Emerald tablets are associated<br>
+with both Hermes and Thoth the Emerald<br>
+tablets of Atlantis the Emerald Isle<br>
+the city of Kern is planners lost city<br>
+of Atlantis<br>
+the city of Atlantis the planner<br>
+described was an ancient Irish<br>
+settlement in Mauritania called Kern<br>
+sometimes spelled Kern with a cane the<br>
+word Kern is derived from the Irish word<br>
+Karen which means pile of rocks or<br>
+stacked rocks Kern was located at the<br>
+base of Mount Atlas in Mauritania Africa<br>
+in a structure called the record<br>
+structure or the eye of the Sahara if<br>
+you look at the top image that's the<br>
+record structure today the bottom image<br>
+is the artist's impression of Atlantis<br>
+it's got concentric circles at one time<br>
+that was land and water<br>
+Theodorus the Greek father of history<br>
+tells us that the Atlanteans lived at<br>
+the base of Mount Atlas in Africa and<br>
+that this tribe was more advanced and<br>
+technologically developed than the<br>
+surrounding tribes of the area he also<br>
+tells us that marina queen of the<br>
+Amazons first attacked the Atlanteans in<br>
+the city of kern this city is also<br>
+described as being an island or an<br>
+island city greek historian Polybius<br>
+also plays Karen in Mauritania near<br>
+might atlas there have been several<br>
+times on islands called Karen in ancient<br>
+Greek writings we also find reference to<br>
+an island of Karen<br>
+which is 12 days sail from the pillars<br>
+of Herakles this is clearly a reference<br>
+to the island of Ireland it also adds<br>
+the parts beyond the Isle of Karen are<br>
+no longer navigable because of Shoals<br>
+mud and seaweed much like Plato's<br>
+description of Atlantis after the great<br>
+flood and again we note that the Greeks<br>
+used the same word to describe two<br>
+separate places the island of turn 12<br>
+tears sail from the pillars of Herakles<br>
+and the city of Karen near the Atlas<br>
+Mountains<br>
+similarly the island of Atlantis and the<br>
+city of Atlantis so the city of turn in<br>
+Mauritania Africa is what remains of the<br>
+ancient city of Atlantis in Homer's<br>
+Odyssey which was written about two<br>
+hundred years before<br>
+legend of Atlantis Poseidon god of the<br>
+sea and earthquakes was responding to<br>
+the Supreme God and he said I am minded<br>
+to smite the beautiful ship of the<br>
+Phaeacians<br>
+and to hide their city behind a huge<br>
+encircling mountain after the loss of<br>
+the ship the patient's were terrified<br>
+and said let us sacrifice to Poseidon<br>
+twelve Trice Bulls in hope that he may<br>
+take pity and not hide our city behind a<br>
+huge encircling mountain home are used<br>
+the term encircling mountain twice to<br>
+describe the location of the city of the<br>
+Phaeacians Atlantis the eye of the<br>
+Sahara the record structure is encircled<br>
+or the Atlas Mountains if we look at<br>
+these two images here is the record<br>
+structure three concentric circles at<br>
+one time this was a lake this would have<br>
+had a lot of water and we can see the<br>
+mountains completely encircling the city<br>
+this other image also shows the<br>
+mountains completely encircling the city<br>
+three concentric circles of land and<br>
+water and remember at one time this was<br>
+abundant with warm this was a very<br>
+fertile land we will show you the<br>
+evidence for that in a second<br>
+Greek historian Theodorus tells us that<br>
+the Atlanteans lived at the base of<br>
+Mount Atlas in Africa and that this<br>
+tribe was more advanced and developed<br>
+than the surrounding tribes of the area<br>
+he also tells us that it was actually an<br>
+island in the nearby lake of tritanus<br>
+that disappeared during an earthquake<br>
+and that this island was inhabited by<br>
+the Amazons who were a ferocious warlike<br>
+race of female warriors Greek history is<br>
+consistent in supporting the accounts of<br>
+the odorous but not that of Plato that<br>
+it was the warlike Amazons and not the<br>
+Atlanteans that attacked Greece and<br>
+waged war in the region<br>
+this is an artist's impression of the<br>
+Greek knowledge of the world at that<br>
+time a couple of things to point out<br>
+here's my doubtless Mauritania here's<br>
+the Atlantis Atlantis people know where<br>
+can we find the island of Ireland or<br>
+Britain for that matter the Greeks at<br>
+that time had no idea where it was<br>
+hence Atlantis<br>
+the following is descriptions from Greek<br>
+mythology about the Atlanteans<br>
+and the Amazons this is what the Greeks<br>
+had to say about the Atlanteans now the<br>
+Atlanteans do Allen as they do in the<br>
+regions on the edge of the ocean and<br>
+inhabiting a fertile territory are<br>
+reputed to excel their neighbors in<br>
+reverence towards the gods and the<br>
+humanity they showed in their dealings<br>
+with strangers and the gods they say<br>
+were born among them<br>
+Atlas received as his part of the<br>
+regions on the coast of the ocean and he<br>
+not only gives the name of Atlanteans to<br>
+his people but likewise called the<br>
+greatest mountain in the land atlas they<br>
+also said that he perfected the science<br>
+of astrology and was the first to<br>
+publish to mankind the doctrine of the<br>
+sphere this is the account given in<br>
+their myth so this is the Greek<br>
+Theodorus describing what the Atlanteans<br>
+told him the their first king was Uranus<br>
+and he gathered the human beings who<br>
+dwelt in scattered habitations within<br>
+the shelter of a walled city and caused<br>
+his subjects to cease from their lawless<br>
+ways and the beast eale manner of living<br>
+discovering for them the uses of<br>
+cultivated fruits store them and not a<br>
+few other things which are of benefit to<br>
+man he also subdued the larger part of<br>
+the inhabited earth in particular the<br>
+regions to the west and the north and<br>
+since he was a careful observer of the<br>
+Stars he foretold many things which<br>
+would take place throughout the world<br>
+and for the common people he introduced<br>
+the year on the basis of the movements<br>
+of the Sun and the months based on the<br>
+moon and instructed them in the seasons<br>
+which work or year after year near the<br>
+salt is a mountain called Atlas very<br>
+taper and round so lofty moreover that<br>
+the top is a said cannot be seen the<br>
+clouds never leaving summer or winter<br>
+the near halves call this Mountain the<br>
+pillar of heaven and they themselves<br>
+take their name from it being called the<br>
+Atlantis they were reported not to eat<br>
+any living thing and never to have any<br>
+dreams the whole of this country has<br>
+successfully had the names of theoria<br>
+Atlantia and last of all Ethiopia so<br>
+these are the<br>
+Zach writings of the Greeks in relation<br>
+to the Atlantean people who lived in a<br>
+settlement in North Africa let's now<br>
+examine what the Greeks had to say about<br>
+the Atlantean near bursty Amazon's<br>
+the Greeks tell us that the Amazons are<br>
+afflicted by an urge to attack the<br>
+greater part of the inhabited world the<br>
+first people against whom the advanced a<br>
+corner of the tale were the Atlanteans<br>
+the most civilized man among the<br>
+inhabitants of those regions who dwelt<br>
+in a prosperous country and possessed<br>
+great cities Marina their queen first<br>
+attacked the Atlanteans in the city of<br>
+Curran and when she took the city she<br>
+killed all the adult males enslaved the<br>
+women and children and razed the city or<br>
+destroyed the city but when the terrible<br>
+fear of the inhabitants of Karen became<br>
+no one among the fellow tribesmen it is<br>
+told that the Atlanteans struck with<br>
+terror surrendered their cities and<br>
+announced that they would do whatever<br>
+should be commanded them and that the<br>
+Queen Marina bearing yourselves<br>
+honorably towards the Atlanteans board<br>
+established friendship with them and<br>
+founded a city to bear her name in place<br>
+of the city which had been razed marina<br>
+then attacked the Gorgons another race<br>
+of warlike women from Deir Marina and<br>
+the Amazons moved east to Egypt where<br>
+they befriended Horus and then began<br>
+conquering the Arabians Syrians and<br>
+other peoples of the eastern<br>
+Mediterranean<br>
+Marina waged war against the Arabs and<br>
+killed many of them she conquered Syria<br>
+and waged war on the tribes around the<br>
+Taurus to the Greek historian Priam<br>
+described the Amazons and barking as<br>
+ferocious warriors who were the equal of<br>
+men Greek historians tell us that the<br>
+Amazons are said to have dwelt on the<br>
+western shores of Libya at the extremity<br>
+of the habitable earth they are said to<br>
+have inhabited an island near the marsh<br>
+trade indies this marsh is near the<br>
+ocean which surrounds the earth at the<br>
+atlantic and it receives his name from<br>
+the river named triton which flows into<br>
+it it is adjacent to Ethiopia under the<br>
+greatest Mount<br>
+in those regions which is the Atlas<br>
+Mountains this mountain stretches to the<br>
+ocean and his name with accretions as<br>
+Atlas the island is said to be very<br>
+large and abounding with a variety of<br>
+fruit trees would supply the inhabitants<br>
+with food<br>
+the Amazons had an army of 30,000 women<br>
+foot soldiers and 3,000 cavalry they<br>
+wore large snake skins for Libya North<br>
+Africa contained snakes of enormous size<br>
+they carried swords and Lance's which<br>
+are Spears the Amazons attacked Athens<br>
+penetrated in right to the sacred Hill<br>
+the Acropolis there the battle reached<br>
+an awful pitch with antipode dying still<br>
+captive and many other Amazon's losing<br>
+their lives in the heroic futile effort<br>
+the defeated women retreated the<br>
+antipode was an Amazon princess who was<br>
+kidnapped by the Greeks so here we have<br>
+clear evidence from the Greeks<br>
+themselves that it was the Amazons and<br>
+not the Atlantean Irish that waged war<br>
+in the region under the tact Greece we<br>
+are told by the Greeks that haven't seen<br>
+Libyans and Millions<br>
+the Amazons built a city in the lake<br>
+tritonus itself this was an island city<br>
+and they said that an earthquake opened<br>
+up the parts towards the ocean and the<br>
+marsh frightened us was swallowed up<br>
+that's the same earthquake caused by a<br>
+comet impact that sunk Atlantis Ireland<br>
+in a tsunami and caused a huge global<br>
+devastation which we're about to learn<br>
+about the Greeks also mentioned the<br>
+Gorgon so let's quickly touch on those<br>
+Maria then attacked the Gorgons another<br>
+nation of warlike women but when the<br>
+Gorgons drew up their forces to resist<br>
+them a mighty battle took place in which<br>
+the Amazons gained in the upper hand<br>
+slew great numbers of the Gorgons and<br>
+talked no fewer than 3,000 prisoners and<br>
+since the rest have fled for refuge into<br>
+a certain wooden region marina set fire<br>
+to the wood being eager to destroy the<br>
+race entirely but when she found that<br>
+she was unable to see the nurse attempt<br>
+she retired to the border of our country<br>
+so the Gorgons were an African tribe of<br>
+women so there was a lot of<br>
+like women in these times Medusa is the<br>
+most famous of the Gorgons and Medusa's<br>
+legendary hair of snakes was really<br>
+African dreadlocks like this lady in the<br>
+image marina accorded a funeral to her<br>
+fallen comrades on three pyres and<br>
+raised up three heaps of earth as tombs<br>
+which are called Amazon manse<br>
+so here we have man building going on in<br>
+Africa just as a record all across<br>
+America and originated at Indian<br>
+shadonna<br>
+but the Gorgons grew and strong again in<br>
+later times were subdued a second time<br>
+by Perseus who is the son of Zeus when<br>
+Medusa was Queen over there and in the<br>
+end both the Gorgons and the Amazons<br>
+were entirely destroyed by Hercules the<br>
+corner the Greeks there have been in<br>
+Libya a number of races of women who<br>
+were warlike and greatly admired for the<br>
+manly vigor Greek tradition tells us of<br>
+the rest of the Gorgons against whom<br>
+Perseus me at war the Gorgons were a<br>
+race distinguished for their valor for<br>
+the fact that it was the son of Zeus the<br>
+mightiest Greek of his day who<br>
+accomplished the campaign against these<br>
+women and that it was his greatest labor<br>
+may be taken as proof of both the<br>
+superiority and power of these female<br>
+warriors the Amazons attacked Greece and<br>
+wage war in the region it wasn't the<br>
+Atlantean Irish and Greek history is<br>
+very consistent than that Clara was<br>
+wrong he said that the Atlanteans wage<br>
+war in the region he was wrong<br>
+it was the Amazons there are a handful<br>
+of legends connecting ancient Ireland to<br>
+Mauritania in one legend Feeny asfar<br>
+stood on a son Neil who was married to<br>
+scooter a daughter of an Egyptian<br>
+pharaoh traveled from Egypt to<br>
+Mauritania and then on to the Pillars of<br>
+Hercules before sailing to Spain at one<br>
+time Mauritania was a rich and fertile<br>
+land with hundreds of lakes and rivers<br>
+during what is commonly called the<br>
+African humid period when Africa had<br>
+lots of rainfall with our images of the<br>
+Mauritania desert have revealed a vast<br>
+river network<br>
+batching for more than 500 kilometers<br>
+the form part of the timer acid river<br>
+which flowed across the parts of Western<br>
+Sahara in ancient times from sources in<br>
+the southern Atlas Mountains this river<br>
+carried water to the sea and water may<br>
+have last course through the channels as<br>
+recently as five thousand years ago<br>
+people plants and wildlife would have<br>
+once thrived in an area that is now<br>
+desert within a few thousand years the<br>
+Sahara went from being a rich fertile<br>
+land to a barren desert the Younger<br>
+Dryas period affected the global climate<br>
+and reduced rainfall in Africa the<br>
+African humid period ended around this<br>
+time and the region has gradually got<br>
+drier and drier the city of care the eye<br>
+of the Sahara are also known as the<br>
+record structure was at one time<br>
+connected to the sea via a river and<br>
+surrounded by fresh water the indigenous<br>
+people of this region are called the<br>
+Berbers under of Irish descent red hair<br>
+and blue eyes<br>
+are found in this region now if we take<br>
+a look at these two maps this top map<br>
+this is the location of the city of<br>
+Karen city of Atlantis you can see a<br>
+huge River a one-time run through it<br>
+these green dots represent large leaks<br>
+as you can see the ancient city of Karen<br>
+was right in the center of a very nice<br>
+very wet region with several lakes and<br>
+we also had large livers and if you<br>
+actually take a look at all these rivers<br>
+the crossed africa africa at one time<br>
+was a very fair time humid rich<br>
+agricultural area and the perfect place<br>
+for the ancient Irish settlement of<br>
+Karen also Karen was connected to the<br>
+sea by River so it would have been<br>
+relatively straightforward for the Irish<br>
+to sail down up the river into the city<br>
+this wider region in Africa is known to<br>
+the Berber people as the to it or to it<br>
+which comes from the Irish were to that<br>
+it means trying and one time this part<br>
+of Africa was very fair tile and there<br>
+are men several watering holes along a<br>
+hundred and sixty kilometers stretch<br>
+these watering holes are still used<br>
+today by African tribes crossing the<br>
+desert all along the - at our sourish<br>
+which is the berber term for fortress or<br>
+fortified village this part of Africa<br>
+has been known as the Ivory Coast and<br>
+the Gold Coast throughout history and it<br>
+was well known to the Phoenicians Irish<br>
+this is the Ivory Coast here this is the<br>
+Gold Coast these four areas are large<br>
+gold fields large gold mines much of the<br>
+Stone Age cave art found in this area<br>
+depicts horses and chariots so the<br>
+people in this area were fascinated by<br>
+horses and chariots because when the<br>
+engine irish brought them it was super<br>
+advanced technology in their eyes and<br>
+they considered the ancient Irish<br>
+godlike because they were just more<br>
+devout<br>
+this area has several gold fields and<br>
+one of the most goldrich areas on the<br>
+planet the Phoenicians Irish are heavily<br>
+connected with the legendary King<br>
+Solomon it was the Phoenician builders<br>
+who constructed his temple and he also<br>
+used on merchant ships the gold fields<br>
+of the - up region are probably the<br>
+location of King Solomon's legendary<br>
+lost gold mines we suspect this is where<br>
+King Solomon's legendary gold mines was<br>
+right here these were also probably the<br>
+sources but more than likely these ones<br>
+it's closer to the coast and would have<br>
+been easier to see in a rant this the<br>
+location City akarin which was connected<br>
+to sea by river and they could sail<br>
+round and collect their gold and then<br>
+sail all background and take it over to<br>
+Solomon or wherever they wanted to take<br>
+her Solomon is also pronounced Sulaiman<br>
+Solomon was considered to be the wisest<br>
+man who ever lived and is a key figure<br>
+in several of the world's religions he<br>
+features in the Koran the Bible and the<br>
+Jewish Torah<br>
+the tulip region is an area in the<br>
+middle of the Sahara which today<br>
+contains 750,000 date-palms in an area<br>
+of 45 square kilometers these trees<br>
+provide edible sweet fruit right in the<br>
+middle of Sahara we find 3/4 of a<br>
+million dead pounds what's most<br>
+incredible is that these trees are<br>
+nourished by an ancient man-made<br>
+irrigation system dating back thousands<br>
+of years thousands of such irrigation<br>
+systems which provide water to the<br>
+driest regions have been found all over<br>
+the world these systems are known in the<br>
+Berber region as Sagaris and in the Arab<br>
+region as quanis this technology<br>
+originated in ancient Ireland where they<br>
+were called holy wells and thousands of<br>
+similar irrigation tunnels are found all<br>
+over the world and we just look at this<br>
+image these are old irrigation tunnels<br>
+that were built in ancient times<br>
+obviously this area is now a desert but<br>
+at one time this was very fertile and<br>
+this is how they did it they found<br>
+underwater rivers and they built<br>
+channels an access shaft and the water<br>
+sprung up so these people were highly<br>
+highly advanced and they really<br>
+understood the laws of nature the laws<br>
+of water the laws of magnetism one of<br>
+the greatest gifts humanity could give<br>
+to the modern world is irrigation a<br>
+third of the world's land mass is desert<br>
+and a lot more that is dusty ground that<br>
+is really difficult to grow things on<br>
+one of the main causes of poverty and<br>
+starvation on earth is a lack of<br>
+irrigation a little responsibility on<br>
+all of us<br>
+to provide a better future for all of<br>
+humanity and for generations not yet<br>
+born we just also like to make a point<br>
+here the current form of money on the<br>
+planet needs to evolve money is needed<br>
+for economies and for trade and commerce<br>
+but the type of money that's currently<br>
+used needs improvement it was invented<br>
+decades ago when the world was a very<br>
+different place we suggest the time<br>
+dollars model and there has been several<br>
+great books written about that combined<br>
+with an education backed currency where<br>
+people are paid to learn that way<br>
+people who live in poverty have a source<br>
+of income and dignity they're able to<br>
+provide for their families and build<br>
+communities and at the same time because<br>
+their skills are evolving to become more<br>
+productive and valuable members of the<br>
+community and are able to contribute to<br>
+the global economy money is not real<br>
+it's a creation that humans have<br>
+invented to facilitate commerce money is<br>
+needed but a better form of money is<br>
+needed money is a form of measurement<br>
+and saying that humanity could run out<br>
+of money is as ignorant as saying we<br>
+could run out of inches we just need to<br>
+invent a better form of money that works<br>
+for all of humanity is it only when the<br>
+last river has been poisoned and the<br>
+last fish has died the man will realize<br>
+you can't eat money we have to take care<br>
+of this planet it's the only place we<br>
+have to live the Atlas Mountains are a<br>
+huge mountain range running along North<br>
+Africa they are primarily inhabited by<br>
+the Berber populations the Berbers are<br>
+the descendants of the ancient Irish and<br>
+of occasional redheads red hair<br>
+frequency is especially significant<br>
+among the ruffians from Morocco and the<br>
+careless from Algeria why even the queen<br>
+of Morocco today has red hair during the<br>
+great flood at the end of the Younger<br>
+Dryas period some Atlanteans escaped to<br>
+the mountains and built sacraments if<br>
+you look at the bottom picture here<br>
+that's one of the remaining settlements<br>
+these settlements contain agricultural<br>
+terraces which are virtually identical<br>
+to the terraces found in the Andes<br>
+fruits and nuts are grown in the region<br>
+and there are some rare native species<br>
+of plants Weedon barley is also grown in<br>
+the region which may be the same native<br>
+screen first introduced thousands of<br>
+these Tallis's may well be the<br>
+inspiration for the Hanging Gardens of<br>
+Babylon legend Hanging Gardens of<br>
+Babylon have never been found<br>
+Babylon was in Iraq but it's possible<br>
+the legend of the Hanging Gardens was<br>
+based on these terraces they looked at<br>
+Hanging Gardens<br>
+so it's possible perhaps this was old<br>
+Babylon and new Babylon was built in the<br>
+Middle East of course this is just a<br>
+suggestion we offer absolutely no proof<br>
+we're just finding this out because they<br>
+look like Hanging Gardens and since the<br>
+Hanging Gardens of Babylon have never<br>
+been found we think there is some<br>
+connection although what it is we're not<br>
+sure<br>
+but finally let's look at the drowning<br>
+of Atlantis which was caused by a cosmic<br>
+impact the word disaster comes from<br>
+Greek and means bad or evil star cosmic<br>
+impacts that is a comet an asteroid or a<br>
+meteorite striking the earth are a lot<br>
+more common than we realize<br>
+a comet has a much denser mass than an<br>
+asteroid or meteorite and is capable of<br>
+enormous destruction due to the extreme<br>
+heats and pressures associated with<br>
+comets there contain platinum and<br>
+diamonds a comet strike is a mass<br>
+extinction event so what we're getting<br>
+at here is comets are very different to<br>
+asteroids and meteorites meteorites are<br>
+usually small-scale meteorite hits<br>
+they're at every week not really a big<br>
+deal asteroids have the potential to do<br>
+a lot of damage but asteroids are slow<br>
+moving space rocks that only get their<br>
+momentum when they come into Earth's<br>
+atmosphere and they get burned up by the<br>
+atmosphere they can still do plenty of<br>
+damage but the Comets is the one that<br>
+are the big concern because of the<br>
+extreme heat and pressure associated<br>
+with comets you find platinum and<br>
+diamonds anywhere you find nano diamonds<br>
+or platinum dust it's a big indication<br>
+of a comma a large comet struck the<br>
+Atlantic Ocean around eleven thousand<br>
+six hundred years ago this huge impact<br>
+caused a global flood and epic rainfalls<br>
+a tsunami caused by the comet or caused<br>
+by follow-on earthquakes grind Atlantis<br>
+Ireland very few survived large parts of<br>
+the world were affected by this comet<br>
+impact before we examine this specific<br>
+event<br>
+let's first quickly look at some more<br>
+recent impacts which are a lot more<br>
+common than most people realize comet<br>
+impacts is not science fiction it's<br>
+science fact we're gonna look very very<br>
+quickly a three relatively recent<br>
+incidence in 1908 an asteroid burned up<br>
+in the skies over the remote region of<br>
+Tunguska in Siberia Russia the qin busca<br>
+event released a hundred and eighty five<br>
+times<br>
+more energy than the Hiroshima atomic<br>
+bomb and flattened 80 million trees like<br>
+matchsticks over 2,000 square kilometers<br>
+how did hit a city the city would have<br>
+simply ceased to exist<br>
+Irish scientists study an oak tree rings<br>
+have been able to determine two<br>
+catastrophic environmental events one in<br>
+536 ad and the other around 2 3 500 BC<br>
+in both periods the growth of the oak<br>
+tree rings was severely stunted so what<br>
+these scientists did was they looked at<br>
+the growth of a tree ring for many<br>
+thousands of years and what they<br>
+discovered was there was two extreme<br>
+events that affected Ireland in the last<br>
+three odd thousand years what they also<br>
+discovered is these events the fact that<br>
+the entire world now if we look at these<br>
+two graphics the top image is the<br>
+creator of Mexico that is thought to<br>
+have killed the dinosaurs the dinosaurs<br>
+were around for millions and millions<br>
+and millions of years and there were<br>
+wiped out with a common impact<br>
+we are on earth a tiny fraction of the<br>
+time and we are extremely exposed to a<br>
+common impact<br>
+the bottom image is several discovered<br>
+creators all around the world that image<br>
+has not actually been updated there are<br>
+a few more that need to be added to but<br>
+here's the thing I want you to realize<br>
+there's not a single creator in the<br>
+ocean creators in the ocean are<br>
+discovered creators on land are easy to<br>
+find creators in the ocean or not the<br>
+comet that sunk Atlantis Ireland eleven<br>
+thousand six hundred years ago hit the<br>
+ocean and you're about to learn exactly<br>
+where it hit a common impact would look<br>
+something like this<br>
+and the problem with the comet is it<br>
+comes out of the blue very very quickly<br>
+so 536 ad has been described as the<br>
+worst year to be a life the extreme<br>
+weather event of 536 was the most severe<br>
+short-term episode of global cooling in<br>
+the last 2,000 years this event lasted<br>
+for 10 years causing extreme hardship<br>
+and suffering all across the world<br>
+a mysterious fog plunged Europe the<br>
+Middle East and parts of Asia into<br>
+darkness day and night Syrian records<br>
+tell us that the Sun was dark and it's<br>
+darkness lasted for 18 months each day<br>
+it shine for only four hours and still<br>
+this light was only a feeble shadow<br>
+according to the ancient Irish annals<br>
+there was a failure of crops or a<br>
+failure of bread in the year 536 based<br>
+on similar studies in Scandinavia and<br>
+America we now know that this event had<br>
+a global impact with very little<br>
+sunlight abnormally low temperatures<br>
+crop failures and right shortly<br>
+afterwards in 541 ad the bubonic plague<br>
+struck killing millions the most likely<br>
+cause of this event was a small time<br>
+after disintegrated in Earth's<br>
+atmosphere causing a huge dust cloud<br>
+that blocked the sun's life-giving rays<br>
+very similar to the top image on this<br>
+screen some just would have been blocked<br>
+at very little getting true and the<br>
+bottom you just see crop finish like<br>
+that all over the world crops fail for<br>
+several years in a row and millions died<br>
+from the Justinian plague the bubonic<br>
+plague was also called the Justinian<br>
+plague by the way Ireland was ravished<br>
+by the Justinian plague and by the time<br>
+the Vikings arrived in Ireland around<br>
+900 AD the population was almost<br>
+completely wiped out the dust fail<br>
+created by this event would have caused<br>
+widespread starvation disease hardship<br>
+and suffering scientists have calculated<br>
+that this global event was triggered by<br>
+a small comet if such crop failures<br>
+happened today most of the world's<br>
+population would face starvation and<br>
+extreme suffering in 2350 BC an event<br>
+known to science as the four point two<br>
+kilo Year event or the Middle East<br>
+anomaly occurred this extreme event<br>
+lasted for at least a century and was<br>
+the most severe climate change event in<br>
+the last 10,000 years this was a huge<br>
+natural disaster caused by a comet<br>
+impact in the boom Albini lake in<br>
+southern iraq this event completely<br>
+destroyed the city of a cat<br>
+which was the capital of the Akkadian<br>
+Empire in Mesopotamia in the immediate<br>
+aftermath of the impact there were<br>
+wildfires floods and a huge air blast of<br>
+over 100 megatons of power that's the<br>
+equivalent of 6,000 Hashima atomic bombs<br>
+6,000 of them global agriculture<br>
+experienced mega droughts rapid cooling<br>
+and crop failures great civilizations<br>
+all around the world collapse into<br>
+anarchy and social chaos famine and<br>
+widespread abandonment of agricultural<br>
+land was common the civilizations of<br>
+Mesopotamia Egypt Crete China and Latin<br>
+America were all heavily affected all<br>
+that remained of the great city of Akkad<br>
+was a huge crater in the ground and a<br>
+giant dust plume soaring over<br>
+Mesopotamia it's very likely that this<br>
+event caused the Neolithic plague which<br>
+killed millions plagues usually follow<br>
+comet impacts the great Chinese flood of<br>
+good news also record around that time<br>
+as did a period of extreme droughts a<br>
+period of intense Drive at the time is<br>
+recorded across North Africa the Middle<br>
+East Red Sea the Arabian Peninsula the<br>
+Indian subcontinent and mid continental<br>
+American glaciers throughout the<br>
+mountain range of Western Canada<br>
+advanced around this time the<br>
+life-giving waters of the Tigris<br>
+Euphrates and man rivers were decimated<br>
+the fertile lands of the Middle East and<br>
+Africa started to turn to dust this<br>
+region is still very dry today<br>
+evidence of this apocalyptic climatic<br>
+event has been found on all seven<br>
+continents if you look to the images on<br>
+the right the top one is just a comet<br>
+strike an earth by the way in ancient<br>
+mythology a comet was known as a dragon<br>
+a red dragon or a fiery serpent in the<br>
+bottom image these are all the places in<br>
+the world that so far have been proven<br>
+to have been heavily affected by this<br>
+comet impact the entire world was<br>
+affected but these are the places that<br>
+have already done the research so there<br>
+is absolutely no doubt<br>
+that there was a major climate event at<br>
+two three five rule BC we're going to<br>
+have to wait for the science to catch up<br>
+on this one it hasn't yet been accepted<br>
+that that's where the comet struck and<br>
+southern Iraq but it's only a matter of<br>
+time<br>
+it absolutely stopped they're the same<br>
+scientists who found the crater in Iraq<br>
+also found a following eyewitness<br>
+accounts on all Mesopotamian cuneiform<br>
+tablets<br>
+the first one is from a cuneiform tablet<br>
+from Mesopotamia the monster grew in<br>
+length for 15 days so the monster is the<br>
+comma and the people could see it for 15<br>
+days before it hit so it obviously<br>
+circled around earth for a while before<br>
+striking the rock monster in the sky was<br>
+ordered to wipe out them below the time<br>
+of Kamiya which is the city of a cat<br>
+Anke who was the massive Athenian God<br>
+according to this tablet blocked the<br>
+water of the Tigris and Euphrates its<br>
+river bed was empty no water flowed<br>
+storm of heaven the malicious storm<br>
+which swept over the land which<br>
+destroyed cities may that storm like<br>
+rain pouring down from heaven never<br>
+recall the storm was over the following<br>
+day with the city reduced to ruin man's<br>
+corpses were piled possessions were<br>
+scattered about the entire agricultural<br>
+irrigation system the channels in the<br>
+labisse which were dug and constructed<br>
+over centuries worth of work by forgoing<br>
+ancestors disappeared gone were the<br>
+orchards and the cultivated land the<br>
+riverbed was trifled with dust mud to<br>
+obtain drinking water people don't<br>
+schools because in the riverbed no<br>
+flowing water is carried now here is a<br>
+sack and a client found in the epic of<br>
+gilgamesh also from Mesopotamia I'm the<br>
+7 judges of hail the Anunnaki who were<br>
+known as the gods where's the torches<br>
+lighting the land with her livid flames<br>
+despair went to heaven when the god of<br>
+the storm turned a light into darkness<br>
+when he smashed the land like a cup one<br>
+whole day at the tempest rage gathering<br>
+furious it went it poured over the<br>
+people mud pebbles wind I'm from a both<br>
+a man could not see his brother nor the<br>
+people be seen from heaven people tried<br>
+to avoid being buried on the collapsing<br>
+roofs leaving their houses trying to get<br>
+to higher ground even the gods were<br>
+terrified this flood and they fled to<br>
+the highest heaven now these are two eye<br>
+witness accounts there are others which<br>
+were written almost four and a half<br>
+thousand years ago and that was how they<br>
+interpret the events at the time the<br>
+interpreter<br>
+that the Thunder God the sky God was<br>
+punishing the people and it sent a red<br>
+dragon or a rock monster or sometimes in<br>
+mythology it's called Thunderbolt so<br>
+these are relatively recent events in<br>
+human history that had a huge impact on<br>
+humanity and humanity today if a similar<br>
+event happened would undergo<br>
+extraordinary suffering we as a species<br>
+need to be aware of the damage that<br>
+comets can cause the frequency which<br>
+their core and to create adequate<br>
+defenses and the most adequate defense<br>
+of all would be some form of forcefield<br>
+probably using the magnetosphere that<br>
+already surrounds the earth play-doh<br>
+give us a very specific timeline for the<br>
+draining of Atlantis eleven thousand six<br>
+hundred years ago this Fiat perfectly<br>
+pullin sides at the end of the Younger<br>
+Dryas period which is also known as the<br>
+mini ice age which lasted from circa<br>
+12,800 to eleven thousand six hundred<br>
+years ago based on our own research we<br>
+asked me at a start date of 12 9 6 so<br>
+before present a duration of thirteen<br>
+hundred and sixty years an end of eleven<br>
+thousand six hundred years before<br>
+present the Younger Dryas<br>
+was the most unusual cooling event in<br>
+two million years temperatures plunged<br>
+ten degrees and stayed low for about<br>
+fourteen hundred years I'm gonna repeat<br>
+that the Younger Dryas period was the<br>
+most unusual cooling event in two<br>
+million years temperatures plunged and<br>
+stayed low for about fourteen hundred<br>
+years there was a mass extinction of<br>
+large animals which were called<br>
+megafauna tens of millions of large<br>
+animals went extinct within a very short<br>
+time<br>
+things like mammoths Irish Alex and<br>
+saber-tooth Tigers all disappear there<br>
+has been many mammals found that were<br>
+frozen alive<br>
+they had burrow<br>
+in the mouth and food and their stomach<br>
+they were just fools and instantly<br>
+that's what quick this thing happened<br>
+the American Clovis culture was<br>
+devastated by the sudden change in<br>
+temperature while globally human<br>
+population levels plunged by 30 to 60<br>
+percent at least half the people on<br>
+earth or wiped out by the start of the<br>
+Younger Dryas and the rest of them were<br>
+wiped out by the end of the Atlantic<br>
+Gulf Stream which laps Ireland with warm<br>
+Atlantic water did not stop during this<br>
+period it did cool but it did not stop<br>
+and while temperatures were more extreme<br>
+that today Ireland remained habitated by<br>
+animals and humans animal DNA records<br>
+prove this as does a recent baboon find<br>
+which proves Ireland was habitated at<br>
+the time and as I mentioned earlier<br>
+Ireland had three separate finds of<br>
+flinters dated from 300 to 400 thousand<br>
+BC and is most likely inhabited since<br>
+then the biggest problem with the comet<br>
+impact theory is that a suitable crater<br>
+has not yet been found this is actually<br>
+not all that surprising since only 19%<br>
+of Earth's surface is actually land ten<br>
+percent is Isis under the ice and 71<br>
+percent is C so what we've decided to do<br>
+is to create an estimate based on what<br>
+we do know and what we know for sure is<br>
+that in the last 50,000 years the 19% of<br>
+Earth's land had three huge impacts one<br>
+in Mauritania 21,000 years ago one in<br>
+Arizona and one in China both around<br>
+forty-nine fifty thousand years ago so<br>
+we've used some simple mathematics here<br>
+since nineteen percent of the Earth's<br>
+surface contains three giant creators<br>
+that have been verified from the last<br>
+50,000 years we can estimate the sea and<br>
+the ice impacts and there's the mats<br>
+there 19 percent was three impacts 10%<br>
+of the ice territory is 1.5 saben so<br>
+that's been rounded to two ice impacts<br>
+sea is 11 point 2<br>
+that's 11 C impacts giving us a total<br>
+of 16 giant earth impacts in the last<br>
+50,000 years the point of this graphic<br>
+is to show that the earth gets hit with<br>
+giant comets a lot more often than we<br>
+realize and those numbers suggest once<br>
+every three and a bit thousand years by<br>
+the way the two events that we've just<br>
+outlined the 2350 BC and the 536 ad<br>
+events were not giant impacts they were<br>
+just large as a species we are very<br>
+exposed to comet impacts of all sizes<br>
+and the risks don't reduce just because<br>
+we ignore them let's find the comet that<br>
+song Atlantis and caused the Great Flood<br>
+as we can see from that clip a giant<br>
+comet striking the ocean would cause a<br>
+huge tsunami and that's what drowned<br>
+Atlantis Ireland and caused the Great<br>
+Flood so where did this happen there<br>
+were two impacts one that started the<br>
+Younger Dryas period and one that ended<br>
+it the first occurred here at point one<br>
+in Greenland around twelve thousand<br>
+eight hundred years ago this caused a<br>
+massive melting of ice and is called<br>
+mouth water one a by scientists it crew<br>
+the oceans and it triggered the mini ice<br>
+age period but simply this event froze<br>
+the ocean<br>
+the second comet was the opposite it<br>
+occurred eleven thousand six hundred<br>
+years ago and it struck right here at<br>
+the Puerto Rico Trench in the Atlantic<br>
+Ocean this comet caused a mass of<br>
+melting of ice called meltwater 1b it<br>
+hated the oceans and it ended the mini<br>
+ice age period but simply this event<br>
+boiled the ocean so the first one cooled<br>
+and froze the ocean the second one<br>
+boiled the ocean this place here is<br>
+called hiawatha in Greenland this place<br>
+here is called the poro Rico Trench in<br>
+the Atlantic Ocean this forced impact<br>
+would have cooled the oceans and it also<br>
+would have created a huge dust cloud<br>
+that blocked the song this second impact<br>
+would have warmed the oceans and it<br>
+would have caused that much rain and<br>
+cloud cover that it would have destroyed<br>
+the dust cloud that blocked the Sun so<br>
+let's examine these boots in detail so<br>
+here's our sea currents the first one<br>
+occurred here lots and lots of ice<br>
+melted and would instantly strain in the<br>
+Atlantic Ocean which may have stopped<br>
+the ocean currents massively and<br>
+essentially the warm water cooled after<br>
+the initial upheaval settle down this<br>
+continue to walk but it was nowhere near<br>
+as warm as it was hence the mini ice age<br>
+the second comet struck here and by the<br>
+ocean it resulted in a huge amount of<br>
+earthquakes volcanoes and it heated the<br>
+ocean which resulted in a rapid warming<br>
+of global planets the ice impact this is<br>
+a graphic representation of the creator<br>
+of that's been found in Greenland it's<br>
+31 kilometres across it's absolutely<br>
+huge crater the first event that caused<br>
+the mini ice age was an ice impact and<br>
+higher water Greenland around twelve<br>
+thousand eight hundred years ago this<br>
+event mastered a lot of ice which cooled<br>
+the oceans slowed the Atlantic Gulf<br>
+Stream and created a huge dust tried to<br>
+block the Sun evidence has been piling<br>
+up to indicate a huge comet strike or a<br>
+series of strike that occurred around<br>
+twelve thousand eight hundred years ago<br>
+including ancient stone carvings from<br>
+libecki tapi in Turkey which indicated<br>
+devastating comets stalked the air two<br>
+eleven thousand nine hundred and seventy<br>
+years ago ice core data from Greenland<br>
+pinpoints the events to twelve thousand<br>
+nine hundred and ten years ago nano<br>
+diamonds and platinum dust which are<br>
+only formed by comets are so far been<br>
+found in ten countries<br>
+and dated to twelve thousand nine<br>
+hundred years ago research indicates a<br>
+mass of 10% of the Earth's land surface<br>
+was consumed by fire around twelve<br>
+thousand eight hundred years ago hell on<br>
+earth pollen grains indicate a drop in<br>
+temperature around this period while<br>
+there was also a large-scale extinction<br>
+of animals and the megafauna around<br>
+twelve thousand eight hundred years ago<br>
+one other possible location for an ice<br>
+Creator is the Wilkes land gravity<br>
+anomaly in Antarctica here we find a<br>
+huge gravitational anomaly and a<br>
+suspected 300 kilometer wide crater<br>
+that's ten times bigger than the<br>
+Greenland creator we don't think this is<br>
+the creator whoever that caused the<br>
+Younger Dryas because it's much too<br>
+large if an impact of<br>
+sighs happened today humanity would face<br>
+mass extinction as with most life on the<br>
+planet that creator probably happened<br>
+much much earlier<br>
+there's also by the way a creator at the<br>
+bottom of the moon which has a strange<br>
+gravitational anomaly wherever you find<br>
+a gravitational anomaly you often find<br>
+that's where a common stock so the<br>
+easiest way to find where a common stock<br>
+is to look for gravitational anomalies<br>
+of course that doesn't mean if you find<br>
+a gravitational anomaly it was a comet<br>
+but it's a great place to start so let's<br>
+find the second comet and we find it<br>
+here in the Puerto Rico Trench so if we<br>
+take a look at this image the Puerto<br>
+Rico Trench there are two plates beside<br>
+other the American and the Caribbean or<br>
+the Caribbean here's the islands of<br>
+Puerto Rico and here we got the Puerto<br>
+Rico Trench which is the deepest trench<br>
+in the entire Atlantic Ocean as we've<br>
+just discussed gravitational anomalies<br>
+often indicate large impact craters and<br>
+the Puerto Rico Trench has the most<br>
+negative gravitational anomaly on earth<br>
+accordin ASSA there is a mass beneath<br>
+this trench that is so dense its<br>
+gravitational pull causes the oceans to<br>
+dip and it also affects navigational<br>
+instruments this location is in the<br>
+infamous Bermuda Triangle and contains<br>
+the deepest point in the Atlantic Ocean<br>
+which is called the Milwaukee depth as<br>
+this site is so close to the tectonic<br>
+plate boundaries a comet impact here<br>
+would trigger global earthquakes<br>
+volcanoes and tsunamis as the oceans by<br>
+huge quantities of steam would have<br>
+reached the atmosphere causing<br>
+torrential rains lasting for months<br>
+volcanoes would have erupted all over<br>
+the world when the tectonic plates would<br>
+have shaken causing numerous earthquakes<br>
+if a comet did indeed strike this region<br>
+the following events would be the origin<br>
+of the great deluge legends which are<br>
+found all across the world in virtually<br>
+every tradition this is a new theory and<br>
+we will have to wait for the sign<br>
+to catch up to either prove or disprove<br>
+it it was first discovered by a German<br>
+rocket scientist called autumn Luke we<br>
+have done a lot of research and are<br>
+certain this is the site but time will<br>
+tell this second comet struck right here<br>
+right with the extreme gravitational<br>
+anomaly is it is right on the edge of<br>
+these plates and it would have<br>
+destabilize this plate and sent<br>
+shockwaves all around the world<br>
+huge tsunamis floods and because there<br>
+was so much fire and volcano in the<br>
+ocean it would have caused a huge amount<br>
+of clouds and rainfall and an epic<br>
+deluge all across the earth these are<br>
+the player boundaries around the world<br>
+and they would have lit up like this<br>
+volcanoes earthquakes tsunamis epic<br>
+rainfall it really would have been hell<br>
+on earth the comet struck here in this<br>
+region right beside this plate on this<br>
+one<br>
+here's Ireland here pretty close to the<br>
+mid-atlantic thought I'm pretty close to<br>
+this point worth three points mate<br>
+there's no question and it would have<br>
+had a huge tsunami as would most of the<br>
+world this would have been a truly kind<br>
+of plasmic of that hand on earth a<br>
+coordinate Plato's legend Atlantis was<br>
+swallowed by the sea this clearly<br>
+indicates a tsunami also several times<br>
+in his dialogue Plato mentions the<br>
+drowning of Atlantis Atlantis Ireland<br>
+was flooded by a tsunami eleven thousand<br>
+six hundred years ago caused by a comet<br>
+impact at the Puerto Rico Trench the<br>
+same impact that ended the Younger Dryas<br>
+mini ice age those that survived on<br>
+higher ground and Harlan has several<br>
+legends of life before the Great Flood<br>
+as well as people surviving the great<br>
+flood Ireland is located 1,500<br>
+kilometers from the mid-atlantic ridge<br>
+and 2,200 kilometers from the Azores<br>
+where 3 tectonic plates meet an arch<br>
+earthquake anywhere along these<br>
+boundaries could cause a tsunami that<br>
+would float around seashells fossils and<br>
+even whale bones have been found in the<br>
+area surrounding the eye of Sahara or<br>
+the city of Karen or the African city of<br>
+Atlantis in Mauritania this structure is<br>
+120 metres above sea level and 520<br>
+meters from the coast indicating that at<br>
+one time a large tsunami occurred here<br>
+tears on the sand and gravel at the site<br>
+indicate that the bulk was accumulated<br>
+sometime between 15,000 and 8,000 years<br>
+ago in line with Plato's estimate of a<br>
+huge event circa eleven thousand six<br>
+hundred years ago here we see volcanic<br>
+ash and lava going into the sea and huge<br>
+amounts of steam going into the air<br>
+which would have created epic amounts of<br>
+reinstall and flooding and we now move<br>
+to the final slide of the presentation<br>
+we have decided after a lot of<br>
+deliberation to include this slide we<br>
+don't need to include it to prove<br>
+Atlantis but we think it's important it<br>
+is included we will warn you that this<br>
+is a very wild theory we offer as much<br>
+evidence as we have although this is<br>
+certainly a theory we will have to wait<br>
+for the science to catch up on if you<br>
+like a good conspiracy theory you're in<br>
+for a treat<br>
+claro started his legend of Atlantis<br>
+with the tale of Phaeton who was the son<br>
+of the Sun God Helios and we suspect<br>
+there is a connection the tale states<br>
+that Phaeton took his father's son<br>
+chariot across the sky without<br>
+permission and crashed the Sun into<br>
+earth causing huge destruction Phaeton<br>
+is also one of the many names for the<br>
+theoretical missing fifth planet between<br>
+the orbits of Mars and Jupiter quite a<br>
+lot of people think that there used to<br>
+be a planet here that exploded and<br>
+that's why we got the asteroid belt here<br>
+and also here and here on either side of<br>
+Jupiter of course that is not a<br>
+mainstream opinion but that is an<br>
+opinion that has been around for<br>
+hundreds of years and some of the<br>
+greatest astronomers of all time suspect<br>
+that there was a planet there most<br>
+called Phaeton some mythology is called<br>
+a planet Lucifer and Marduk and if you<br>
+read science fiction there are about a<br>
+hundred different names for that planet<br>
+but the most acceptable is Phaeton now<br>
+it's possible that most of the comets<br>
+and asteroids in our solar system were<br>
+caused by the explosion of a missing<br>
+fifth planet the remains of which are<br>
+the asteroid belt and the extreme heat<br>
+from this event would have created the<br>
+Platinum and nano diamonds found in<br>
+comets and would also have provided the<br>
+explosive energy needed for comets to<br>
+fly around the solar system we must<br>
+remember that asteroids just flew around<br>
+doing nothing their space rocks but<br>
+comets fly around space at enormous<br>
+speeds so they need a source of energy<br>
+to do that<br>
+one theory is that they got this energy<br>
+from the explosion of a fifth planet the<br>
+planet Faden we suspect that there was<br>
+indeed a fifth planet which was<br>
+destroyed by a violent collision with<br>
+one of Jupiter's moons many of Jupiter's<br>
+moons move as fast as a comet but are<br>
+millions of times larger so these are<br>
+Jupiter's moons<br>
+on the extended extraordinary distance<br>
+from Jupiter<br>
+you<br>
+we think one of Jupiter's former moons<br>
+landed the knockout blow<br>
+the power of such an impact coupled with<br>
+Jupiter's enormous gravity would have<br>
+torn the fifth planet to pieces Korean<br>
+and thousands of comets and asteroids of<br>
+course this is just a wild theory and<br>
+only time will tell<br>
+we will all have to wait for the science<br>
+to catch up either way it's an<br>
+interesting theory there are a lot of<br>
+wild conspiracy theories surrounding the<br>
+missing fifth planet everything from<br>
+humans used to inhabit it and<br>
+self-destructed to aliens inhabited to<br>
+it got struck by a comet it got struck<br>
+by another planet there are many many<br>
+theories and who knows what the truth is<br>
+we are of the opinion that it was struck<br>
+by one of Jupiter's moons and in a<br>
+violent collision coupled with Jupiter's<br>
+gravity was torn to pieces if a fifth<br>
+planet did indeed explode we can use the<br>
+orbits of known comets to calculate the<br>
+date of this explosion but more<br>
+importantly predict possible future<br>
+comet impacts the ability to predict and<br>
+prevent future impacts is a key tool in<br>
+developing adequate defenses other<br>
+species developing a force field to<br>
+prevent cosmic impacts must be a high<br>
+priority billions of lives are at stake<br>
+the key to defending against a comet is<br>
+time if we knew that the earth was about<br>
+to be hit by a comet in 100 years time<br>
+that gives us enough time to deal with<br>
+it if we've found out that it was going<br>
+to be hit tomorrow very little we can do<br>
+the reason we have included this is this<br>
+is what we think happened we think this<br>
+is the source of this all the Comets are<br>
+most of the Comets in the solar system<br>
+and if we understand the Comets we can<br>
+better prepare for them unpredict it's<br>
+very possible we're wrong with this<br>
+theory only time will tell<br>
+there are over a thousand facts in this<br>
+presentation it's unlikely that every<br>
+single one of them it's correct don't<br>
+believe a word we say do your own<br>
+research and think for yourself thank<br>
+you so much for joining us for this<br>
+presentation and we will finish off with<br>
+a reminder of other opportunities to<br>
+learn<br>
+from Keystone University there's three<br>
+rules of the game at Keystone University<br>
+number one don't believe a word we say<br>
+think for yourself the point of an<br>
+education is to help you do your rooms<br>
+thinking so please do your own research<br>
+do your own think and come to your own<br>
+conclusions number two before you make<br>
+up your mind opener we sincerely hope<br>
+that we've opened your mind and expanded<br>
+your mind you're in this presentation<br>
+and finally you're gonna have to wait<br>
+for the mainstream to catch up with this<br>
+and prove or disprove these theories our<br>
+mission is to build the world's best<br>
+University a center of excellence to<br>
+push the human race forward we want to<br>
+build a university the lack of which the<br>
+world has never seen if you're<br>
+interested been learning from us<br>
+supporting our work finding out more<br>
+check out Keystone AE we offer three<br>
+seminars Atlantis mastermind an<br>
+enterprise each one of them is exclusive<br>
+material not available anywhere else in<br>
+the world they're all available once a<br>
+year in Dublin Ireland<br>
+the Atlantis seminar is all about<br>
+exploring the great mysteries day one<br>
+you learned at the ancient history of<br>
+the world air 2 is all about modern<br>
+science the great breakthroughs and how<br>
+silence is torn in science fiction into<br>
+science fact day three is all about<br>
+human evolution where we come from where<br>
+we're going and why we're here that<br>
+program is run everyman our second<br>
+program is Master Mind where we hug to<br>
+you awaken the genius within you will<br>
+study the mind you will get to learn or<br>
+stress fear anxiety all these things<br>
+come from you will learn the mechanics<br>
+of the mind you will master creative<br>
+thinking and you will create an inspired<br>
+mission for your life that's at your<br>
+soul on fire that program is run every<br>
+August in Dublin Ireland unlike all our<br>
+programs at last three days our final<br>
+program is called enterprise will you<br>
+master the art of business this is the<br>
+best business education on the planet if<br>
+you want to build a great career in<br>
+business this is the place to be day one<br>
+is all about rapid growth say<br>
+marketing how to create a business<br>
+master plan dear to his orbit financial<br>
+mastery how to multiply the sales profit<br>
+cash flow and the value of any business<br>
+you'll also learn how to read a set of<br>
+accounts and how to master the art of<br>
+making money through business dr3 is all<br>
+people skills<br>
+recruitment management leadership<br>
+negotiations how to inspire people how<br>
+to interview people how to communicate<br>
+how to give feedback<br>
+all of these vitally important skills<br>
+driving a business is like driving a car<br>
+and we all need a few lessons now and<br>
+again all our programs are exclusive to<br>
+Keystone this material is not available<br>
+anywhere else in the world we hope to<br>
+see you in atlantis ireland soon and if<br>
+you do come why not stay a little longer<br>
+and explore atlantis ireland we will<br>
+leave you with this final thought we all<br>
+have to climb out of the slime of<br>
+ignorance whether as an individual a<br>
+country or a species we all need to<br>
+climb out of the slime of ignorance<br>
+towards a golden age the age of wisdom a<br>
+world in union<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+[Music]<br>
+you</p>
+<p><strong>Estimated Tokens:</strong> 35896<br>
+Explain</p>
+
+</body>
+
+</html>
