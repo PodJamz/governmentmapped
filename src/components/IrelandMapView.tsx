@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CircleMarker, GeoJSON, MapContainer, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import type { GeoJsonObject } from "geojson";
+import { GraphNodeDetailBody } from "@/components/GraphNodeDetailBody";
 import { LOCAL_AUTHORITIES } from "@/data/elected-layers";
 import { LOCAL_AUTHORITY_CENTROIDS } from "@/data/local-authority-centroids";
 import type { MapGeoNode } from "@/lib/graph-geo-positions";
@@ -64,6 +65,7 @@ type MapProps = {
   graphNodes?: MapGeoNode[] | null;
   selectedNodeId?: string | null;
   onGraphNodeClick?: (id: string) => void;
+  theme?: "dark" | "light";
 };
 
 export function IrelandMapView({
@@ -71,8 +73,10 @@ export function IrelandMapView({
   graphNodes,
   selectedNodeId,
   onGraphNodeClick,
+  theme = "light",
 }: MapProps) {
   const [geo, setGeo] = useState<GeoJsonObject | null>(null);
+  const [borderGeo, setBorderGeo] = useState<GeoJsonObject | null>(null);
   const [base, setBase] = useState<BaseLayer>("physical");
   const [hoverId, setHoverId] = useState<string | null>(null);
 
@@ -85,6 +89,21 @@ export function IrelandMapView({
       })
       .catch(() => {
         if (!cancelled) setGeo(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/geo/roi-ni-border.geojson")
+      .then((r) => r.json())
+      .then((data) => {
+        if (!cancelled) setBorderGeo(data);
+      })
+      .catch(() => {
+        if (!cancelled) setBorderGeo(null);
       });
     return () => {
       cancelled = true;
@@ -167,6 +186,21 @@ export function IrelandMapView({
             }}
           />
         )}
+        {borderGeo && (
+          <GeoJSON
+            data={borderGeo}
+            style={() => ({
+              color: "#b45309",
+              weight: 3,
+              opacity: 0.92,
+              fillOpacity: 0,
+              dashArray: "6 4",
+            })}
+            onEachFeature={(_f, layer) => {
+              layer.bindPopup("Republic of Ireland – Northern Ireland boundary (simplified line)");
+            }}
+          />
+        )}
         {useGraphLayer
           ? graphNodes!.map((n) => {
               const active = selectedNodeId === n.id || hoverId === n.id;
@@ -187,13 +221,16 @@ export function IrelandMapView({
                     mouseout: () => setHoverId(null),
                   }}
                 >
-                  <Popup>
-                    <div className="min-w-[200px] text-sm text-zinc-900">
-                      <p className="font-semibold">{n.name}</p>
-                      <p className="mt-1 text-xs uppercase tracking-wide text-zinc-600">
-                        {n.category.replace(/_/g, " ")}
+                  <Popup className="codex-map-popup" maxWidth={320}>
+                    <div className="min-w-[220px] max-w-[300px]">
+                      <p className="font-semibold text-zinc-900">{n.popupNode.name}</p>
+                      <p className="mt-0.5 text-xs uppercase tracking-wide text-zinc-600">
+                        {n.popupNode.category.replace(/_/g, " ")}
                       </p>
-                      <p className="mt-1 font-mono text-[10px] text-zinc-500">{n.id}</p>
+                      <p className="mt-1 font-mono text-[10px] text-zinc-500">{n.popupNode.id}</p>
+                      <div className="mt-2 border-t border-zinc-200 pt-2">
+                        <GraphNodeDetailBody node={n.popupNode} theme={theme} variant="popup" />
+                      </div>
                     </div>
                   </Popup>
                 </CircleMarker>

@@ -10,6 +10,8 @@ export type MapGeoNode = {
   lat: number;
   lng: number;
   fill: string;
+  /** Shallow copy for map popups (same metadata as graph node, no children). */
+  popupNode: GraphNode;
 };
 
 const DUBLIN_HUB: [number, number] = [53.338, -6.259];
@@ -143,6 +145,12 @@ export function buildMapGeoNodes(root: GraphNode, theme: "dark" | "light"): MapG
       lat,
       lng,
       fill,
+      popupNode: {
+        id: node.id,
+        name: node.name,
+        category: node.category,
+        details: node.details,
+      },
     };
   });
 }

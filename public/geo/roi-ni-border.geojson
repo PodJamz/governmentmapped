@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Republic of Ireland – Northern Ireland boundary",
+        "note": "Simplified polyline for cartographic context (not survey-grade)."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-7.02, 55.19],
+          [-7.2, 55.1],
+          [-7.45, 54.95],
+          [-7.55, 54.85],
+          [-7.65, 54.75],
+          [-7.75, 54.65],
+          [-7.85, 54.55],
+          [-7.95, 54.48],
+          [-8.08, 54.42],
+          [-8.15, 54.35],
+          [-8.08, 54.28],
+          [-7.95, 54.22],
+          [-7.8, 54.18],
+          [-7.65, 54.15],
+          [-7.5, 54.12],
+          [-7.35, 54.1],
+          [-7.15, 54.08],
+          [-7.0, 54.07],
+          [-6.85, 54.06],
+          [-6.7, 54.05],
+          [-6.55, 54.045],
+          [-6.4, 54.04],
+          [-6.28, 54.04]
+        ]
+      }
+    }
+  ]
+}

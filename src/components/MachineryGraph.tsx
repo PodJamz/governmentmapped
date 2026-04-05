@@ -126,7 +126,11 @@ export function MachineryGraph({ data }: Props) {
   const [legendOpen, setLegendOpen] = useState(false);
   const [mapViewOpen, setMapViewOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [rotation, setRotation] = useState(0);
+  /** User-controlled spin (↻). */
+  const [manualRotation, setManualRotation] = useState(0);
+  /** Auto-align selected branch toward the top (additive with manual). */
+  const [alignRotation, setAlignRotation] = useState(0);
+  const [layoutDims, setLayoutDims] = useState({ w: 800, h: 640 });
 
   const mapGeoNodes = useMemo(() => buildMapGeoNodes(data, theme), [data, theme]);
 
@@ -136,17 +140,40 @@ export function MachineryGraph({ data }: Props) {
   }, [data, selectedId]);
 
   useEffect(() => {
+    if (!selectedId) {
+      setAlignRotation(0);
+      return;
+    }
+    const { w, h } = layoutDims;
+    const radius = Math.min(w, h) / 2 - 36;
+    const root = layoutTree(data, radius);
+    const found = root.descendants().find((d) => d.data.id === selectedId);
+    if (!found) {
+      setAlignRotation(0);
+      return;
+    }
+    let deg = -(found.x * 180) / Math.PI;
+    while (deg > 180) deg -= 360;
+    while (deg < -180) deg += 360;
+    setAlignRotation(deg);
+  }, [selectedId, data, layoutDims]);
+
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "Escape") return;
       if (detailModalOpen) {
         setDetailModalOpen(false);
         return;
       }
+      if (legendOpen) {
+        setLegendOpen(false);
+        return;
+      }
       if (mapViewOpen) setMapViewOpen(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [detailModalOpen, mapViewOpen]);
+  }, [detailModalOpen, legendOpen, mapViewOpen]);
 
   const getSize = () => {
     const wrap = wrapRef.current;
@@ -173,6 +200,7 @@ export function MachineryGraph({ data }: Props) {
     const linkMuted = ink ? "rgba(232,220,200,0.08)" : "rgba(28,22,18,0.11)";
     const linkActive = ink ? "rgba(228,192,74,0.92)" : "rgba(166,124,42,0.9)";
     const linkFaded = ink ? "rgba(232,220,200,0.04)" : "rgba(28,22,18,0.06)";
+    const rotation = manualRotation + alignRotation;
     const related = relatedNodeIds(root, selectedId);
     const guideStroke = ink ? "rgba(232,220,200,0.055)" : "rgba(28,22,18,0.075)";
     const bgInner = ink ? "#1e1a16" : "#ede4d4";
@@ -373,15 +401,24 @@ export function MachineryGraph({ data }: Props) {
 
     const nextT = lastTransformRef.current ?? defaultTransform(width, height);
     svg.call(zoom.transform, nextT);
-  }, [data, selectedId, theme, rotation]);
+  }, [data, selectedId, theme, manualRotation, alignRotation]);
 
   useEffect(() => {
     draw();
   }, [draw]);
 
   useEffect(() => {
-    const ro = new ResizeObserver(() => draw());
-    if (wrapRef.current) ro.observe(wrapRef.current);
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+    const onResize = () => {
+      const w = wrap.clientWidth;
+      const h = Math.max(560, Math.min(window.innerHeight - 48, 920));
+      setLayoutDims({ w, h });
+      draw();
+    };
+    onResize();
+    const ro = new ResizeObserver(onResize);
+    ro.observe(wrap);
     return () => ro.disconnect();
   }, [draw]);
 
@@ -408,7 +445,7 @@ export function MachineryGraph({ data }: Props) {
     const found = root.descendants().find((d) => d.data.id === selectedId);
     if (!found) return;
     const [nx, ny] = project(found.x, found.y);
-    const rad = (rotation * Math.PI) / 180;
+    const rad = ((manualRotation + alignRotation) * Math.PI) / 180;
     const rx = nx * Math.cos(rad) - ny * Math.sin(rad);
     const ry = nx * Math.sin(rad) + ny * Math.cos(rad);
     const k = 2.35;
@@ -449,7 +486,7 @@ export function MachineryGraph({ data }: Props) {
             type="button"
             className={toolBtn}
             title="Rotate 15°"
-            onClick={() => setRotation((r) => (r + 15) % 360)}
+            onClick={() => setManualRotation((r) => (r + 15) % 360)}
           >
             ↻
           </button>
@@ -521,6 +558,7 @@ export function MachineryGraph({ data }: Props) {
               className="relative h-full min-h-[min(78dvh,760px)] w-full overflow-hidden rounded-none border-0 bg-[var(--codex-parchment-edge)]"
               graphNodes={mapGeoNodes}
               selectedNodeId={selectedId}
+              theme={theme}
               onGraphNodeClick={(id) => {
                 setSelectedId(id);
                 setDetailModalOpen(true);
@@ -532,6 +570,7 @@ export function MachineryGraph({ data }: Props) {
       )}
 
       <NodeDetailModal
+        root={data}
         node={detailNode}
         open={detailModalOpen && !!detailNode}
         theme={theme}
@@ -539,11 +578,18 @@ export function MachineryGraph({ data }: Props) {
       />
 
       {legendOpen && (
-        <div
-          className="codex-frame absolute bottom-12 left-1/2 z-20 max-h-[min(52vh,420px)] w-[min(96vw,640px)] -translate-x-1/2 overflow-y-auto rounded-none p-4 text-xs md:bottom-14"
-          role="dialog"
-          aria-label="Legend"
-        >
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-[230] cursor-default bg-[var(--codex-ink)]/25 backdrop-blur-[1px]"
+            aria-label="Close legend"
+            onClick={() => setLegendOpen(false)}
+          />
+          <div
+            className="codex-frame fixed bottom-0 left-0 right-0 z-[240] max-h-[min(52vh,480px)] overflow-y-auto rounded-none border-t border-[var(--codex-border)] bg-[var(--codex-parchment)] p-4 pb-6 text-xs shadow-[0_-12px_40px_rgba(0,0,0,0.12)]"
+            role="dialog"
+            aria-label="Legend"
+          >
           <div className="codex-knot-rule mb-3" aria-hidden="true" />
           <div className="mb-3 flex items-center justify-between gap-2">
             <span className="font-[family-name:var(--font-cinzel)] text-xs font-semibold tracking-[0.2em] text-[var(--codex-ink-muted)]">
@@ -553,7 +599,7 @@ export function MachineryGraph({ data }: Props) {
               Close
             </button>
           </div>
-          <div className="grid gap-4 text-[var(--codex-ink)] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-5xl gap-4 text-[var(--codex-ink)] sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="mb-2 font-semibold text-[10px] uppercase tracking-widest opacity-50">Officials · circles</p>
               <ul className="space-y-1.5 opacity-90">
@@ -647,7 +693,8 @@ export function MachineryGraph({ data }: Props) {
               </ul>
             </div>
           </div>
-        </div>
+          </div>
+        </>
       )}
     </div>
   );

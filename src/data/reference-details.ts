@@ -17,10 +17,30 @@ const BY_ID: Record<string, Record<string, unknown>> = {
     role: "head_of_government",
     bunreachtArticle: "Article 28",
     summary: "Taoiseach chairs the Government and is appointed by the President on nomination of the Dáil.",
+    leaders: [
+      {
+        name: "Micheál Martin",
+        role: "Taoiseach",
+        profileUrl:
+          "https://www.oireachtas.ie/en/members/member/Miche%C3%A1l-Martin.D.1989-06-29/",
+        imageUrl:
+          "https://data.oireachtas.ie/ie/oireachtas/member/id/Miche%C3%A1l-Martin.D.1989-06-29/image/large",
+      },
+    ],
+    dataSourceNote: "Office-holder from Oireachtas open data; verify after reshuffles.",
   },
   tanaiste: {
     role: "deputy_head_of_government",
     summary: "Tánaiste deputises for the Taoiseach and holds a ministerial portfolio.",
+    leaders: [
+      {
+        name: "Simon Harris",
+        role: "Tánaiste",
+        profileUrl: "https://www.oireachtas.ie/en/members/member/Simon-Harris.D.2011-03-09/",
+        imageUrl: "https://data.oireachtas.ie/ie/oireachtas/member/id/Simon-Harris.D.2011-03-09/image/large",
+      },
+    ],
+    dataSourceNote: "Office-holder from Oireachtas open data; verify after reshuffles.",
   },
   "cabinet-collective": {
     type: "cabinet",
